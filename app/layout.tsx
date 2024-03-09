@@ -1,11 +1,13 @@
 import './global.css'
 import type { Metadata } from 'next'
-import { GeistSans } from 'geist/font/sans'
-import { GeistMono } from 'geist/font/mono'
+import { Aleo } from 'next/font/google'
 import { Navbar } from './components/nav'
 import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import { SandpackCSS } from './blog/[slug]/sandpack'
+import { cx } from 'lib/classnames'
+
+const aleo = Aleo({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://beforeoafterm.tioi.network'),
@@ -43,8 +45,6 @@ export const metadata: Metadata = {
   },
 }
 
-const cx = (...classes) => classes.filter(Boolean).join(' ')
-
 export default function RootLayout({ children }: {
   children: React.ReactNode
 }) {
@@ -52,8 +52,7 @@ export default function RootLayout({ children }: {
     <html
       lang="en"
       className={cx(
-        GeistSans.variable,
-        GeistMono.variable
+        aleo.className
       )}
     >
       <head>
