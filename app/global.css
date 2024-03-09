@@ -58,12 +58,12 @@
   }
 
   main {
-    @apply px-2Y
-      mt-6
+    @apply mt-6
       flex
       min-w-0
       flex-auto
       flex-col
+      px-2
       md:px-0;
   }
 

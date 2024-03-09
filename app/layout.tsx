@@ -10,7 +10,7 @@ import { SandpackCSS } from './blog/[slug]/sandpack'
 export const metadata: Metadata = {
   metadataBase: new URL('https://beforeoafterm.tioi.network'),
   title: {
-    default: 'Ronneil Petterson',
+    default: 'Ronneil Petterson - Portfolio',
     template: '%s | Ronneil Petterson',
   },
   description: 'Software engineer, founder, and mentor.',
