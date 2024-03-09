@@ -1,0 +1,3 @@
+.Portfolio_headingText {
+  @apply mb-8 text-2xl font-medium tracking-tighter;
+}
