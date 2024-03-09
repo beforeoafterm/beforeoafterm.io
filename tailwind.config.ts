@@ -1,5 +1,5 @@
-import type { Config } from 'tailwindcss';
-import typography from '@tailwindcss/typography';
+import type { Config } from 'tailwindcss'
+import typography from '@tailwindcss/typography'
 
 export default {
   content: ['./app/**/*.{ts,tsx}', './content/**/*.mdx', './public/**/*.svg'],
@@ -23,4 +23,4 @@ export default {
     hoverOnlyWhenSupported: true,
   },
   plugins: [typography],
-} satisfies Config;
+} satisfies Config

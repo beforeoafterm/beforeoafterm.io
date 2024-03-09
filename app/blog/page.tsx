@@ -1,16 +1,16 @@
-import Link from 'next/link';
-import { Suspense } from 'react';
-import ViewCounter from './view-counter';
-import { getViewsCount } from 'app/db/queries';
-import { getBlogPosts } from 'app/db/blog';
+import Link from 'next/link'
+import { Suspense } from 'react'
+import ViewCounter from './view-counter'
+import { getViewsCount } from 'app/db/queries'
+import { getBlogPosts } from 'app/db/blog'
 
 export const metadata = {
   title: 'Blog',
   description: 'Read my thoughts on software development, design, and more.',
-};
+}
 
 export default function BlogPage() {
-  let allBlogs = getBlogPosts();
+  let allBlogs = getBlogPosts()
 
   return (
     <section>
@@ -22,9 +22,9 @@ export default function BlogPage() {
           if (
             new Date(a.metadata.publishedAt) > new Date(b.metadata.publishedAt)
           ) {
-            return -1;
+            return -1
           }
-          return 1;
+          return 1
         })
         .map((post) => (
           <Link
@@ -43,11 +43,11 @@ export default function BlogPage() {
           </Link>
         ))}
     </section>
-  );
+  )
 }
 
 async function Views({ slug }: { slug: string }) {
-  let views = await getViewsCount();
+  let views = await getViewsCount()
 
-  return <ViewCounter allViews={views} slug={slug} />;
+  return <ViewCounter allViews={views} slug={slug} />
 }

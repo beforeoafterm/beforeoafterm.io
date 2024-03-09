@@ -1,88 +1,88 @@
-'use client';
+'use client'
 
-import { useFormStatus } from 'react-dom';
-import { useState, useEffect } from 'react';
-import { deleteGuestbookEntries } from 'app/db/actions';
+import { useFormStatus } from 'react-dom'
+import { useState, useEffect } from 'react'
+import { deleteGuestbookEntries } from 'app/db/actions'
 
 export default function Form({ entries }) {
-  const [selectedInputs, setSelectedInputs] = useState<string[]>([]);
-  const [startShiftClickIndex, setStartShiftClickIndex] = useState<number>(0);
-  const [isShiftKeyPressed, setIsShiftKeyPressed] = useState(false);
-  const [isCommandKeyPressed, setIsCommandKeyPressed] = useState(false);
+  const [selectedInputs, setSelectedInputs] = useState<string[]>([])
+  const [startShiftClickIndex, setStartShiftClickIndex] = useState<number>(0)
+  const [isShiftKeyPressed, setIsShiftKeyPressed] = useState(false)
+  const [isCommandKeyPressed, setIsCommandKeyPressed] = useState(false)
 
   useEffect(() => {
     const keyDownHandler = ({ key }) => {
       if (key === 'Shift') {
-        setIsShiftKeyPressed(true);
+        setIsShiftKeyPressed(true)
       }
       if (key === 'Meta' || key === 'Control') {
-        setIsCommandKeyPressed(true);
+        setIsCommandKeyPressed(true)
       }
-    };
+    }
     const keyUpHandler = ({ key }) => {
       if (key === 'Shift') {
-        setIsShiftKeyPressed(false);
+        setIsShiftKeyPressed(false)
       }
       if (key === 'Meta' || key === 'Control') {
-        setIsCommandKeyPressed(false);
+        setIsCommandKeyPressed(false)
       }
-    };
+    }
 
-    window.addEventListener('keydown', keyDownHandler);
-    window.addEventListener('keyup', keyUpHandler);
+    window.addEventListener('keydown', keyDownHandler)
+    window.addEventListener('keyup', keyUpHandler)
 
     return () => {
-      window.removeEventListener('keydown', keyDownHandler);
-      window.removeEventListener('keyup', keyUpHandler);
-    };
-  }, []);
+      window.removeEventListener('keydown', keyDownHandler)
+      window.removeEventListener('keyup', keyUpHandler)
+    }
+  }, [])
 
   const handleNormalClick = (checked: boolean, id: string, index: number) => {
     setSelectedInputs((prevInputs) =>
       checked
         ? [...prevInputs, id]
         : prevInputs.filter((inputId) => inputId !== id)
-    );
-    setStartShiftClickIndex(index);
-  };
+    )
+    setStartShiftClickIndex(index)
+  }
 
   const handleCommandClick = (id: string) => {
     setSelectedInputs((prevInputs) =>
       prevInputs.includes(id)
         ? prevInputs.filter((inputId) => inputId !== id)
         : [...prevInputs, id]
-    );
-  };
+    )
+  }
 
   const handleShiftClick = (index: number, checked: boolean) => {
-    const startIndex = Math.min(startShiftClickIndex!, index);
-    const endIndex = Math.max(startShiftClickIndex!, index);
+    const startIndex = Math.min(startShiftClickIndex!, index)
+    const endIndex = Math.max(startShiftClickIndex!, index)
 
     setSelectedInputs((prevInputs) => {
       const newSelection = entries
         .slice(startIndex, endIndex + 1)
-        .map((item) => item.id);
+        .map((item) => item.id)
 
       if (checked) {
         const combinedSelection = Array.from(
           new Set([...prevInputs, ...newSelection])
-        );
-        return combinedSelection;
+        )
+        return combinedSelection
       } else {
-        return prevInputs.filter((inputId) => !newSelection.includes(inputId));
+        return prevInputs.filter((inputId) => !newSelection.includes(inputId))
       }
-    });
-  };
+    })
+  }
 
   const handleCheck = (checked: boolean, id: string, index: number) => {
     if (isCommandKeyPressed) {
-      handleCommandClick(id);
+      handleCommandClick(id)
     } else if (isShiftKeyPressed && startShiftClickIndex !== null) {
-      handleShiftClick(index, checked);
+      handleShiftClick(index, checked)
     } else {
-      handleNormalClick(checked, id, index);
+      handleNormalClick(checked, id, index)
     }
-  };
+  }
 
   const handleKeyDown = (
     event: React.KeyboardEvent<HTMLInputElement>,
@@ -91,18 +91,18 @@ export default function Form({ entries }) {
   ) => {
     if (event.key === 'Enter') {
       // Check if the checkbox was already selected
-      const isChecked = selectedInputs.includes(id);
+      const isChecked = selectedInputs.includes(id)
 
       // Toggle the checkbox
-      handleCheck(!isChecked, id, index);
+      handleCheck(!isChecked, id, index)
     }
-  };
+  }
 
   return (
     <form
       onSubmit={async (e) => {
-        e.preventDefault();
-        await deleteGuestbookEntries(selectedInputs);
+        e.preventDefault()
+        await deleteGuestbookEntries(selectedInputs)
       }}
     >
       <DeleteButton isActive={selectedInputs.length !== 0} />
@@ -119,7 +119,7 @@ export default function Form({ entries }) {
         </GuestbookEntry>
       ))}
     </form>
-  );
+  )
 }
 
 function GuestbookEntry({ entry, children }) {
@@ -133,13 +133,13 @@ function GuestbookEntry({ entry, children }) {
         {entry.body}
       </div>
     </div>
-  );
+  )
 }
 
-const cx = (...classes) => classes.filter(Boolean).join(' ');
+const cx = (...classes) => classes.filter(Boolean).join(' ')
 
 function DeleteButton({ isActive }) {
-  const { pending } = useFormStatus();
+  const { pending } = useFormStatus()
 
   return (
     <button
@@ -154,5 +154,5 @@ function DeleteButton({ isActive }) {
     >
       Delete Entries
     </button>
-  );
+  )
 }

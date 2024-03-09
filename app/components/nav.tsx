@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Link from 'next/link'
 
 const navItems = {
   '/': {
@@ -13,7 +13,7 @@ const navItems = {
   '/guestbook': {
     name: 'guestbook',
   },
-};
+}
 
 export function Navbar() {
   return (
@@ -33,11 +33,11 @@ export function Navbar() {
                 >
                   {name}
                 </Link>
-              );
+              )
             })}
           </div>
         </nav>
       </div>
     </aside>
-  );
+  )
 }

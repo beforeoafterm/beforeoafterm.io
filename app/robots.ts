@@ -7,5 +7,5 @@ export default function robots() {
     ],
     sitemap: 'https://beforeoafterm.tioi.network/sitemap.xml',
     host: 'https://beforeoafterm.tioi.network',
-  };
+  }
 }

@@ -27,61 +27,61 @@ export const HTML = `<!DOCTYPE html>
       </article>
     </main>
     <footer class="blog-footer">
-      <p>&copy; 2023 Minimal Blog</p>
+      <p>&copy 2023 Minimal Blog</p>
     </footer>
   </body>
-</html>`;
+</html>`
 
 export const CSS = `:root {
-  --main-bg-color: #f3f4f6;
-  --title-color: #262626;
-  --text-color: #525252;
-  --font-family: "Arial", sans-serif;
+  --main-bg-color: #f3f4f6
+  --title-color: #262626
+  --text-color: #525252
+  --font-family: "Arial", sans-serif
 }
 
 body {
-  margin: 0;
-  padding: 0;
-  background-color: var(--main-bg-color);
-  font-family: var(--font-family);
+  margin: 0
+  padding: 0
+  background-color: var(--main-bg-color)
+  font-family: var(--font-family)
 }
 
 .blog-header,
 .blog-footer {
-  text-align: center;
-  padding: 1rem;
-  background-color: var(--title-color);
-  color: white;
+  text-align: center
+  padding: 1rem
+  background-color: var(--title-color)
+  color: white
 }
 
 .blog-post {
-  container-type: inline-size;
-  margin: 1rem;
-  padding: 1rem;
-  background-color: white;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  container-type: inline-size
+  margin: 1rem
+  padding: 1rem
+  background-color: white
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1)
 
   & .post-title {
-    color: var(--title-color);
-    margin: 0 0 1rem 0;
-    text-wrap: balance;
-    font-size: 1em;
+    color: var(--title-color)
+    margin: 0 0 1rem 0
+    text-wrap: balance
+    font-size: 1em
   }
 
   & .post-content {
-    color: var(--text-color);
+    color: var(--text-color)
   }
 }
 
 @container (min-inline-size: 500px) {
   .blog-post {
-    padding: 1.5rem;
+    padding: 1.5rem
 
     & .post-title {
-      font-size: 1.25em;
+      font-size: 1.25em
     }
   }
-}`;
+}`
 
 export const Tailwind = `<!DOCTYPE html>
 <html lang="en">
@@ -112,10 +112,10 @@ export const Tailwind = `<!DOCTYPE html>
       </article>
     </main>
     <footer class="text-center py-8 bg-neutral-800 text-white">
-      <p>&copy; 2023 Minimal Blog</p>
+      <p>&copy 2023 Minimal Blog</p>
     </footer>
   </body>
-</html>`;
+</html>`
 
 export const stylexIndex = `<!DOCTYPE html>
 <html lang="en">
@@ -129,30 +129,30 @@ export const stylexIndex = `<!DOCTYPE html>
     <script type="module" src="/index.tsx"></script>
   </body>
 </html>
-`;
+`
 
-export const stylexViteConfig = `import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
-import { stylexPlugin } from "vite-plugin-stylex-dev";
+export const stylexViteConfig = `import { defineConfig } from "vite"
+import react from "@vitejs/plugin-react"
+import { stylexPlugin } from "vite-plugin-stylex-dev"
 
 export default defineConfig({
   plugins: [react(), stylexPlugin()],
-});
-`;
+})
+`
 
-export const stylexTokens = `import * as stylex from "@stylexjs/stylex";
+export const stylexTokens = `import * as stylex from "@stylexjs/stylex"
 
 export const tokens = stylex.defineVars({
   bgColor: "#f3f4f6",
   titleColor: "#262626",
   textColor: "#525252",
   fontFamily: 'Arial, sans-serif',
-});
-`;
+})
+`
 
-export const stylexApp = `import React from "react";
-import * as stylex from "@stylexjs/stylex";
-import { tokens } from "./tokens.stylex";
+export const stylexApp = `import React from "react"
+import * as stylex from "@stylexjs/stylex"
+import { tokens } from "./tokens.stylex"
 
 const styles = stylex.create({
   body: {
@@ -185,7 +185,7 @@ const styles = stylex.create({
   postContent: {
     color: tokens.textColor,
   },
-});
+})
 
 export default function App() {
   return (
@@ -210,8 +210,8 @@ export default function App() {
         </article>
       </main>
       <footer {...stylex.props(styles.headerFooter)}>
-        <p>&copy; 2023 Minimal Blog</p>
+        <p>&copy 2023 Minimal Blog</p>
       </footer>
     </body>
-  );
-}`;
+  )
+}`

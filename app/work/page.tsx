@@ -6,5 +6,5 @@ export default function Page() {
         This is where your work experience goes.
       </p>
     </section>
-  );
+  )
 }

@@ -1,13 +1,13 @@
-import { auth } from 'app/auth';
-import { getGuestbookEntries } from 'app/db/queries';
-import { SignIn, SignOut } from './buttons';
-import { Suspense } from 'react';
-import Form from './form';
+import { auth } from 'app/auth'
+import { getGuestbookEntries } from 'app/db/queries'
+import { SignIn, SignOut } from './buttons'
+import { Suspense } from 'react'
+import Form from './form'
 
 export const metadata = {
   title: 'Guestbook',
   description: 'Sign my guestbook and leave your mark.',
-};
+}
 
 export default function GuestbookPage() {
   return (
@@ -20,11 +20,11 @@ export default function GuestbookPage() {
         <GuestbookEntries />
       </Suspense>
     </section>
-  );
+  )
 }
 
 async function GuestbookForm() {
-  let session = await auth();
+  let session = await auth()
 
   return session?.user ? (
     <>
@@ -33,14 +33,14 @@ async function GuestbookForm() {
     </>
   ) : (
     <SignIn />
-  );
+  )
 }
 
 async function GuestbookEntries() {
-  let entries = await getGuestbookEntries();
+  let entries = await getGuestbookEntries()
 
   if (entries.length === 0) {
-    return null;
+    return null
   }
 
   return entries.map((entry) => (
@@ -52,5 +52,5 @@ async function GuestbookEntries() {
         {entry.body}
       </div>
     </div>
-  ));
+  ))
 }

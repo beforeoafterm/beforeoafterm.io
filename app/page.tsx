@@ -6,5 +6,5 @@ export default function Page() {
         This is your new portfolio.
       </p>
     </section>
-  );
+  )
 }

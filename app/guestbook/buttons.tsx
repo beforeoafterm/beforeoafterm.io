@@ -1,6 +1,6 @@
-'use client';
+'use client'
 
-import { signIn, signOut } from 'next-auth/react';
+import { signIn, signOut } from 'next-auth/react'
 
 export function SignOut() {
   return (
@@ -10,7 +10,7 @@ export function SignOut() {
     >
       Sign out
     </button>
-  );
+  )
 }
 
 export function SignIn() {
@@ -22,5 +22,5 @@ export function SignIn() {
       <img alt="GitHub logo" src="/github-logo.svg" width="20" height="20" />
       <div className="ml-3">Sign in with GitHub</div>
     </button>
-  );
+  )
 }

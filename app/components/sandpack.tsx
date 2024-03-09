@@ -1,6 +1,6 @@
-'use client';
+'use client'
 
-import { Sandpack } from '@codesandbox/sandpack-react';
+import { Sandpack } from '@codesandbox/sandpack-react'
 import {
   HTML,
   CSS,
@@ -9,20 +9,20 @@ import {
   stylexApp,
   stylexViteConfig,
   stylexTokens,
-} from './sandpack-files';
-import React, { Suspense } from 'react';
+} from './sandpack-files'
+import React, { Suspense } from 'react'
 
 class ErrorBoundary extends React.Component<
-  { fallback: React.ReactNode; children?: React.ReactNode },
+  { fallback: React.ReactNode children?: React.ReactNode },
   { hasError: boolean }
 > {
-  constructor(props: { fallback: React.ReactNode; children: React.ReactNode }) {
-    super(props);
-    this.state = { hasError: false };
+  constructor(props: { fallback: React.ReactNode children: React.ReactNode }) {
+    super(props)
+    this.state = { hasError: false }
   }
 
   static getDerivedStateFromError(error) {
-    return { hasError: true };
+    return { hasError: true }
   }
 
   render() {
@@ -31,15 +31,15 @@ class ErrorBoundary extends React.Component<
         <div className="px-4 py-3 border border-red-700 bg-red-200 rounded p-1 text-sm flex items-center text-red-900 mb-8">
           <div className="w-full callout">{this.props.fallback}</div>
         </div>
-      );
+      )
     }
 
-    return this.props.children;
+    return this.props.children
   }
 }
 
 export function LiveCode({ example }: { example: string }) {
-  let files;
+  let files
 
   if (example === 'html') {
     files = {
@@ -48,11 +48,11 @@ export function LiveCode({ example }: { example: string }) {
         active: true,
       },
       '/index.html': HTML,
-    };
+    }
   } else if (example === 'tailwind') {
     files = {
       '/index.html': Tailwind,
-    };
+    }
   } else if (example === 'stylex') {
     return (
       <Suspense fallback={null}>
@@ -85,7 +85,7 @@ export function LiveCode({ example }: { example: string }) {
           />
         </ErrorBoundary>
       </Suspense>
-    );
+    )
   }
 
   return (
@@ -96,5 +96,5 @@ export function LiveCode({ example }: { example: string }) {
         <Sandpack theme="auto" template="static" files={files} />
       </ErrorBoundary>
     </Suspense>
-  );
+  )
 }

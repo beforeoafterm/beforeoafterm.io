@@ -1,8 +1,8 @@
-import postgres from 'postgres';
+import postgres from 'postgres'
 
 export const sql = postgres(process.env.POSTGRES_URL, {
   ssl: 'allow',
-});
+})
 
 const nextConfig = {
   experimental: {
@@ -11,19 +11,19 @@ const nextConfig = {
   },
   async redirects() {
     if (!process.env.POSTGRES_URL) {
-      return [];
+      return []
     }
 
     let redirects = await sql`
       SELECT source, destination, permanent
       FROM redirects;
-    `;
+    `
 
     return redirects.map(({ source, destination, permanent }) => ({
       source,
       destination,
       permanent: !!permanent,
-    }));
+    }))
   },
   headers() {
     return [
@@ -31,7 +31,7 @@ const nextConfig = {
         source: '/(.*)',
         headers: securityHeaders,
       },
-    ];
+    ]
   },
 };
 
@@ -44,7 +44,7 @@ const ContentSecurityPolicy = `
     connect-src *;
     font-src 'self' data:;
     frame-src 'self' *.codesandbox.io vercel.live;
-`;
+`
 
 const securityHeaders = [
   {
@@ -75,6 +75,6 @@ const securityHeaders = [
     key: 'Permissions-Policy',
     value: 'camera=(), microphone=(), geolocation=()',
   },
-];
+]
 
-export default nextConfig;
+export default nextConfig

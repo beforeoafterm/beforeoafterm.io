@@ -1,19 +1,19 @@
-import type { Metadata } from 'next';
-import { Suspense, cache } from 'react';
-import { notFound } from 'next/navigation';
-import { CustomMDX } from 'app/components/mdx';
-import { getViewsCount } from 'app/db/queries';
-import { getBlogPosts } from 'app/db/blog';
-import ViewCounter from '../view-counter';
-import { increment } from 'app/db/actions';
-import { unstable_noStore as noStore } from 'next/cache';
+import type { Metadata } from 'next'
+import { Suspense, cache } from 'react'
+import { notFound } from 'next/navigation'
+import { CustomMDX } from 'app/components/mdx'
+import { getViewsCount } from 'app/db/queries'
+import { getBlogPosts } from 'app/db/blog'
+import ViewCounter from '../view-counter'
+import { increment } from 'app/db/actions'
+import { unstable_noStore as noStore } from 'next/cache'
 
 export async function generateMetadata({
   params,
 }): Promise<Metadata | undefined> {
-  let post = getBlogPosts().find((post) => post.slug === params.slug);
+  let post = getBlogPosts().find((post) => post.slug === params.slug)
   if (!post) {
-    return;
+    return
   }
 
   let {
@@ -21,10 +21,10 @@ export async function generateMetadata({
     publishedAt: publishedTime,
     summary: description,
     image,
-  } = post.metadata;
+  } = post.metadata
   let ogImage = image
     ? `https://beforeoafterm.tioi.network${image}`
-    : `https://beforeoafterm.tioi.network/og?title=${title}`;
+    : `https://beforeoafterm.tioi.network/og?title=${title}`
 
   return {
     title,
@@ -47,47 +47,47 @@ export async function generateMetadata({
       description,
       images: [ogImage],
     },
-  };
+  }
 }
 
 function formatDate(date: string) {
-  noStore();
-  let currentDate = new Date();
+  noStore()
+  let currentDate = new Date()
   if (!date.includes('T')) {
-    date = `${date}T00:00:00`;
+    date = `${date}T00:00:00`
   }
-  let targetDate = new Date(date);
+  let targetDate = new Date(date)
 
-  let yearsAgo = currentDate.getFullYear() - targetDate.getFullYear();
-  let monthsAgo = currentDate.getMonth() - targetDate.getMonth();
-  let daysAgo = currentDate.getDate() - targetDate.getDate();
+  let yearsAgo = currentDate.getFullYear() - targetDate.getFullYear()
+  let monthsAgo = currentDate.getMonth() - targetDate.getMonth()
+  let daysAgo = currentDate.getDate() - targetDate.getDate()
 
-  let formattedDate = '';
+  let formattedDate = ''
 
   if (yearsAgo > 0) {
-    formattedDate = `${yearsAgo}y ago`;
+    formattedDate = `${yearsAgo}y ago`
   } else if (monthsAgo > 0) {
-    formattedDate = `${monthsAgo}mo ago`;
+    formattedDate = `${monthsAgo}mo ago`
   } else if (daysAgo > 0) {
-    formattedDate = `${daysAgo}d ago`;
+    formattedDate = `${daysAgo}d ago`
   } else {
-    formattedDate = 'Today';
+    formattedDate = 'Today'
   }
 
   let fullDate = targetDate.toLocaleString('en-us', {
     month: 'long',
     day: 'numeric',
     year: 'numeric',
-  });
+  })
 
-  return `${fullDate} (${formattedDate})`;
+  return `${fullDate} (${formattedDate})`
 }
 
 export default function Blog({ params }) {
-  let post = getBlogPosts().find((post) => post.slug === params.slug);
+  let post = getBlogPosts().find((post) => post.slug === params.slug)
 
   if (!post) {
-    notFound();
+    notFound()
   }
 
   return (
@@ -131,13 +131,13 @@ export default function Blog({ params }) {
         <CustomMDX source={post.content} />
       </article>
     </section>
-  );
+  )
 }
 
-let incrementViews = cache(increment);
+let incrementViews = cache(increment)
 
 async function Views({ slug }: { slug: string }) {
-  let views = await getViewsCount();
-  incrementViews(slug);
-  return <ViewCounter allViews={views} slug={slug} />;
+  let views = await getViewsCount()
+  incrementViews(slug)
+  return <ViewCounter allViews={views} slug={slug} />
 }
