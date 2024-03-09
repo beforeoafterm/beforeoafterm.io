@@ -35,7 +35,7 @@ export async function getBlogViews() {
 }
 
 export async function getViewsCount(): Promise<
-  { slug: string count: number }[]
+  { slug: string; count: number }[]
 > {
   if (!process.env.POSTGRES_URL) {
     return []

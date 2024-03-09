@@ -12,11 +12,16 @@ import {
 } from './sandpack-files'
 import React, { Suspense } from 'react'
 
-class ErrorBoundary extends React.Component<
-  { fallback: React.ReactNode children?: React.ReactNode },
+class ErrorBoundary extends React.Component<{
+    fallback: React.ReactNode
+    children?: React.ReactNode 
+  },
   { hasError: boolean }
 > {
-  constructor(props: { fallback: React.ReactNode children: React.ReactNode }) {
+  constructor(props: {
+    fallback: React.ReactNode
+    children: React.ReactNode
+  }) {
     super(props)
     this.state = { hasError: false }
   }
