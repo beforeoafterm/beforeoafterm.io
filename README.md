@@ -21,7 +21,11 @@ yarn setup # Remove all of my personal information
 yarn dev
 ```
 
-Create a `.env.local` file similar to [`.env.example`](https://github.com/beforeoafterm/beforeoafterm.tioi.network/blob/main/.env.example).
+Create a `.env.local` file similar to [`.env.example`](https://github.com/beforeoafterm/beforeoafterm.io/blob/main/.env.example).
+
+```bash
+cp .env.example .env.local
+```
 
 ## Database Schema
 
