@@ -19,17 +19,17 @@ const fontSerif = FontSerif({
 export const metadata: Metadata = {
   metadataBase: new URL('https://beforeoafterm.tioi.network'),
   title: {
-    default: 'Ronneil Petterson - Portfolio',
-    template: '%s | Ronneil Petterson',
+    default: 'Ronneil Petterson',
+    template: '%s | Ronneil Petterson'
   },
   description: 'Software engineer, founder, and mentor.',
   openGraph: {
     title: 'Ronneil Petterson',
-    description: 'Software engineer, mentor, and founder.',
+    description: 'Software engineer, founder, and mentor.',
     url: 'https://beforeoafterm.tioi.network',
     siteName: 'Ronneil Petterson',
     locale: 'en_US',
-    type: 'website',
+    type: 'website'
   },
   robots: {
     index: true,
@@ -39,20 +39,22 @@ export const metadata: Metadata = {
       follow: true,
       'max-video-preview': -1,
       'max-image-preview': 'large',
-      'max-snippet': -1,
-    },
+      'max-snippet': -1
+    }
   },
   twitter: {
     title: 'Ronneil Petterson',
-    card: 'summary_large_image',
+    card: 'summary_large_image'
   },
   verification: {
     google: 'eZSdmzAXlLkKhNJzfgwDqWORghxnJ8qR9_CHdAh5-xw',
-    yandex: '14d2e73487fa6c71',
-  },
+    yandex: '14d2e73487fa6c71'
+  }
 }
 
-export default function RootLayout({ children }: {
+export default function RootLayout({
+  children
+}: {
   children: React.ReactNode
 }) {
   return (
