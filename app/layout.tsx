@@ -1,13 +1,20 @@
 import './global.css'
 import type { Metadata } from 'next'
-import { Aleo } from 'next/font/google'
+import { Aleo as FontSlabSerif, Quicksand as FontSerif } from 'next/font/google'
 import { Navbar } from './components/nav'
 import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import { SandpackCSS } from './blog/[slug]/sandpack'
 import { cx } from 'lib/classnames'
 
-const aleo = Aleo({ subsets: ['latin'] })
+const fontSlabSerif = FontSlabSerif({
+  subsets: ['latin'],
+  variable: '--font-slab-serif'
+})
+const fontSerif = FontSerif({
+  subsets: ['latin'],
+  variable: '--font-serif'
+})
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://beforeoafterm.tioi.network'),
@@ -49,12 +56,7 @@ export default function RootLayout({ children }: {
   children: React.ReactNode
 }) {
   return (
-    <html
-      lang="en"
-      className={cx(
-        aleo.className
-      )}
-    >
+    <html lang="en" className={cx(fontSlabSerif.variable, fontSerif.variable)}>
       <head>
         <SandpackCSS />
       </head>

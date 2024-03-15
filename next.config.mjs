@@ -41,7 +41,7 @@ const ContentSecurityPolicy = `
     img-src * blob: data:;
     media-src 'none';
     connect-src *;
-    font-src 'self' data:;
+    font-src 'self' fonts.gstatic.com data:;
     frame-src 'self' *.codesandbox.io vercel.live;
 `
 

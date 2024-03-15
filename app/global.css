@@ -40,6 +40,7 @@
   html {
     @apply bg-white
       text-black
+      font-slabSerif
       dark:bg-[#111010]
       dark:text-white;
     min-width: 320px;
