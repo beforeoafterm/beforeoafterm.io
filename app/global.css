@@ -2,35 +2,78 @@
 @tailwind components;
 @tailwind utilities;
 
-::-moz-selection {
-  background-color: #47a3f3;
-  color: #fefefe;
-}
-
-::selection {
-  background-color: #47a3f3;
-  color: #fefefe;
-}
-
-:root {
-  --sh-class: #2d5e9d;
-  --sh-identifier: #354150;
-  --sh-sign: #8996a3;
-  --sh-string: #007f7a;
-  --sh-keyword: #e02518;
-  --sh-comment: #a19595;
-  --sh-jsxliterals: #6266d1;
-  --sh-property: #e25a1c;
-  --sh-entity: #e25a1c;
-}
-
 @layer base {
+  ::-moz-selection {
+    background-color: #47a3f3;
+    color: #fefefe;
+  }
+
+  ::selection {
+    background-color: #47a3f3;
+    color: #fefefe;
+  }
+
+  :root {
+    --background: #F1E4E9;
+    --foreground: #432331;
+
+    --card: #F1E4E9;
+    --card-foreground: #432331;
+
+    --popover: #F1E4E9;
+    --popover-foreground: #432331;
+
+    --primary: #5E3144;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: #5E3144;
+
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+
+    --accent: 0 0% 96.1%;
+    --accent-foreground: #5E3144;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: #432331;
+
+    --radius: 0.5rem;
+  }
+
   @media (prefers-color-scheme: dark) {
     :root {
-      --sh-class: #4c97f8;
-      --sh-identifier: white;
-      --sh-keyword: #f47067;
-      --sh-string: #0fa295;
+      --background: #432331;
+      --foreground: 0 0% 98%;
+
+      --card: #432331;
+      --card-foreground: 0 0% 98%;
+
+      --popover: #432331;
+      --popover-foreground: 0 0% 98%;
+
+      --primary: 0 0% 98%;
+      --primary-foreground: #5E3144;
+
+      --secondary: 0 0% 14.9%;
+      --secondary-foreground: 0 0% 98%;
+
+      --muted: 0 0% 14.9%;
+      --muted-foreground: 0 0% 63.9%;
+
+      --accent: 0 0% 14.9%;
+      --accent-foreground: 0 0% 98%;
+
+      --destructive: 0 62.8% 30.6%;
+      --destructive-foreground: 0 0% 98%;
+
+      --border: 0 0% 14.9%;
+      --input: 0 0% 14.9%;
+      --ring: 0 0% 83.1%;
     }
     html {
       color-scheme: dark;
@@ -38,12 +81,17 @@
   }
 
   html {
-    @apply bg-white
-      text-black
-      font-slabSerif
-      dark:bg-[#111010]
+    @apply
+      dark:bg-[#012622]
       dark:text-white;
-    min-width: 320px;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-slabSerif;
   }
 
   body {
@@ -54,6 +102,7 @@
       max-w-2xl
       flex-col
       antialiased
+      text-xl
       md:flex-row
       lg:mx-auto;
   }
@@ -77,70 +126,8 @@
     white-space: nowrap;
   }
 
-  .prose .anchor {
-    @apply invisible absolute no-underline;
-
-    margin-left: -1em;
-    padding-right: 0.5em;
-    width: 80%;
-    max-width: 700px;
-    cursor: pointer;
-  }
-
-  .anchor:hover {
-    @apply visible;
-  }
-
-  .prose a {
-    @apply decoration-neutral-400 decoration-[0.1em] underline-offset-2 transition-all dark:decoration-neutral-600;
-  }
-
-  .prose .anchor:after {
-    @apply text-neutral-300 dark:text-neutral-700;
-    content: '#';
-  }
-
-  .prose *:hover > .anchor {
-    @apply visible;
-  }
-
-  .prose pre {
-    @apply overflow-x-auto rounded-lg border border-neutral-200 bg-neutral-50 dark:border-neutral-900 dark:bg-neutral-900;
-  }
-
-  .prose code {
-    @apply rounded-lg px-1 py-0.5;
-  }
-
-  .prose pre code {
-    @apply p-0;
-    border: initial;
-    line-height: 1.5;
-  }
-
-  .prose code span {
-    @apply font-medium;
-  }
-
-  .prose img {
-    /* Don't apply styles to next/image */
-    @apply m-0;
-  }
-
-  .prose h2,
-  h3,
-  h4 {
-    @apply font-medium tracking-tighter !important;
-  }
-
-  .prose strong {
-    @apply font-medium;
-  }
-
-  .prose > :first-child {
-    /* Override removing top margin, causing layout shift */
-    margin-top: 1.25em !important;
-    margin-bottom: 1.25em !important;
+  a {
+    @apply font-bold underline underline-offset-4 hover:text-[#a07178] transition-colors duration-300;
   }
 
   pre::-webkit-scrollbar {
@@ -158,15 +145,6 @@
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-  }
-
-  .prose .callout > p {
-    margin: 0 !important;
-  }
-
-  .prose .tweet a {
-    text-decoration: inherit;
-    font-weight: 500;
   }
 }
 
