@@ -1,11 +1,11 @@
 import './global.css'
 import type { Metadata } from 'next'
 import { Aleo as FontSlabSerif, Quicksand as FontSerif } from 'next/font/google'
-import { Navbar } from './components/nav'
+import { Navbar } from '@/components/nav'
 import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import { SandpackCSS } from './blog/[slug]/sandpack'
-import { cx } from 'lib/classnames'
+import { cx } from '@/lib/utils'
 
 const fontSlabSerif = FontSlabSerif({
   subsets: ['latin'],
