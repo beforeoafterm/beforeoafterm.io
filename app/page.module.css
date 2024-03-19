@@ -1,3 +1,15 @@
-.Portfolio_headingText {
-  @apply mb-8 text-2xl font-medium tracking-tighter;
+.Home {
+  @apply flex flex-col gap-8;
+}
+
+.Home_cta {
+  @apply flex flex-col gap-4;
+}
+
+.Home_headingText {
+  @apply mb-4 mt-24 font-serif text-6xl font-medium tracking-tighter;
+}
+
+.Home_subheadingText {
+  @apply text-2xl text-[#368f8b];
 }

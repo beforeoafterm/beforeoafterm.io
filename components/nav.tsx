@@ -17,27 +17,25 @@ const navItems = {
 
 export function Navbar() {
   return (
-    <aside className="-ml-[8px] mb-16 tracking-tight">
-      <div className="lg:sticky lg:top-20">
-        <nav
-          className="fade relative flex scroll-pr-6 flex-row items-start px-0 pb-0 md:relative md:overflow-auto"
-          id="nav"
-        >
-          <div className="flex flex-row space-x-0 pr-10">
-            {Object.entries(navItems).map(([path, { name }]) => {
-              return (
-                <Link
-                  key={path}
-                  href={path}
-                  className="relative flex px-2 py-1 align-middle font-serif text-base font-bold no-underline"
-                >
-                  {name}
-                </Link>
-              )
-            })}
-          </div>
-        </nav>
-      </div>
-    </aside>
+    <footer className="sticky bottom-0 bg-background p-4 shadow-2xl">
+      <nav
+        className="fade relative flex scroll-pr-6 flex-row items-start"
+        id="nav"
+      >
+        <div className="flex flex-row justify-between">
+          {Object.entries(navItems).map(([path, { name }]) => {
+            return (
+              <Link
+                key={path}
+                href={path}
+                className="relative flex px-3 py-1 align-middle text-base font-bold tracking-tighter no-underline"
+              >
+                {name}
+              </Link>
+            )
+          })}
+        </div>
+      </nav>
+    </footer>
   )
 }

@@ -3,6 +3,7 @@
 import { useFormStatus } from 'react-dom'
 import { useState, useEffect } from 'react'
 import { deleteGuestbookEntries } from 'app/db/actions'
+import { cx } from 'class-variance-authority'
 
 export default function Form({ entries }) {
   const [selectedInputs, setSelectedInputs] = useState<string[]>([])
@@ -111,7 +112,7 @@ export default function Form({ entries }) {
           <input
             name={entry.id}
             type="checkbox"
-            className="mr-2 w-4 h-4"
+            className="mr-2 h-4 w-4"
             onChange={(e) => handleCheck(e.target.checked, entry.id, index)}
             onKeyDown={(e) => handleKeyDown(e, entry.id, index)}
             checked={selectedInputs.includes(entry.id)}
@@ -124,10 +125,10 @@ export default function Form({ entries }) {
 
 function GuestbookEntry({ entry, children }) {
   return (
-    <div className="flex flex-col space-y-1 mb-4">
-      <div className="w-full text-sm break-words items-center flex">
+    <div className="mb-4 flex flex-col space-y-1">
+      <div className="flex w-full items-center break-words text-sm">
         {children}
-        <span className="text-neutral-600 dark:text-neutral-400 mr-1 border-neutral-100">
+        <span className="mr-1 border-neutral-100 text-neutral-600 dark:text-neutral-400">
           {entry.created_by}:
         </span>
         {entry.body}
@@ -136,17 +137,15 @@ function GuestbookEntry({ entry, children }) {
   )
 }
 
-const cx = (...classes) => classes.filter(Boolean).join(' ')
-
 function DeleteButton({ isActive }) {
   const { pending } = useFormStatus()
 
   return (
     <button
       className={cx(
-        'px-3 py-2 border border-neutral-200 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 rounded p-1 text-sm inline-flex items-center leading-4 text-neutral-900 dark:text-neutral-100 mb-8 transition-all',
+        'mb-8 inline-flex items-center rounded border border-neutral-200 bg-neutral-50 p-1 px-3 py-2 text-sm leading-4 text-neutral-900 transition-all dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-100',
         {
-          'bg-red-300/50 dark:bg-red-700/50': isActive,
+          'bg-red-300/50 dark:bg-red-700/50': isActive
         }
       )}
       disabled={pending}

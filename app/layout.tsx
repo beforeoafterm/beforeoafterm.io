@@ -5,7 +5,7 @@ import { Navbar } from '@/components/nav'
 import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import { SandpackCSS } from './blog/[slug]/sandpack'
-import { cx } from '@/lib/utils'
+import { cn } from '@/lib/utils'
 
 const fontSlabSerif = FontSlabSerif({
   subsets: ['latin'],
@@ -22,10 +22,10 @@ export const metadata: Metadata = {
     default: 'Ronneil Petterson',
     template: '%s | Ronneil Petterson'
   },
-  description: 'Software engineer, founder, and mentor.',
+  description: 'Software engineer, technical leader, and mentor.',
   openGraph: {
     title: 'Ronneil Petterson',
-    description: 'Software engineer, founder, and mentor.',
+    description: 'Software engineer, technical leader, and mentor.',
     url: 'https://beforeoafterm.tioi.network',
     siteName: 'Ronneil Petterson',
     locale: 'en_US',
@@ -58,17 +58,15 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={cx(fontSlabSerif.variable, fontSerif.variable)}>
+    <html lang="en" className={cn(fontSlabSerif.variable, fontSerif.variable)}>
       <head>
         <SandpackCSS />
       </head>
       <body>
-        <main>
-          <Navbar />
-          {children}
-          <Analytics />
-          <SpeedInsights />
-        </main>
+        <main>{children}</main>
+        <Navbar />
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   )
