@@ -2,14 +2,18 @@
   @apply flex flex-col gap-8;
 }
 
-.Home_cta {
-  @apply flex flex-col gap-4;
+.Home_headingText {
+  @apply mb-4
+    font-serif
+    text-4xl
+    leading-[normal]
+    md:text-6xl;
 }
 
-.Home_headingText {
-  @apply mb-4 mt-24 font-serif text-6xl font-medium tracking-tighter;
+.Home_cta {
+  @apply mt-8 flex flex-col gap-2 md:flex-row md:gap-4;
 }
 
 .Home_subheadingText {
-  @apply text-2xl text-[#368f8b];
+  @apply text-primary md:text-2xl;
 }
