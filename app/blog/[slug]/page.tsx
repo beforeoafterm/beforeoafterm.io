@@ -9,7 +9,7 @@ import { increment } from 'app/db/actions'
 import { unstable_noStore as noStore } from 'next/cache'
 
 export async function generateMetadata({
-  params,
+  params
 }): Promise<Metadata | undefined> {
   let post = getBlogPosts().find((post) => post.slug === params.slug)
   if (!post) {
@@ -20,7 +20,7 @@ export async function generateMetadata({
     title,
     publishedAt: publishedTime,
     summary: description,
-    image,
+    image
   } = post.metadata
   let ogImage = image
     ? `https://beforeoafterm.tioi.network${image}`
@@ -37,16 +37,16 @@ export async function generateMetadata({
       url: `https://beforeoafterm.tioi.network/blog/${post.slug}`,
       images: [
         {
-          url: ogImage,
-        },
-      ],
+          url: ogImage
+        }
+      ]
     },
     twitter: {
       card: 'summary_large_image',
       title,
       description,
-      images: [ogImage],
-    },
+      images: [ogImage]
+    }
   }
 }
 
@@ -77,7 +77,7 @@ function formatDate(date: string) {
   let fullDate = targetDate.toLocaleString('en-us', {
     month: 'long',
     day: 'numeric',
-    year: 'numeric',
+    year: 'numeric'
   })
 
   return `${fullDate} (${formattedDate})`
@@ -109,15 +109,15 @@ export default function Blog({ params }) {
             url: `https://beforeoafterm.tioi.network/blog/${post.slug}`,
             author: {
               '@type': 'Person',
-              name: 'Lee Robinson',
-            },
-          }),
+              name: 'Lee Robinson'
+            }
+          })
         }}
       />
-      <h1 className="title font-medium text-2xl tracking-tighter max-w-[650px]">
+      <h1 className="title max-w-[650px] text-2xl font-medium tracking-tighter">
         {post.metadata.title}
       </h1>
-      <div className="flex justify-between items-center mt-2 mb-8 text-sm max-w-[650px]">
+      <div className="mb-8 mt-2 flex max-w-[650px] items-center justify-between text-sm">
         <Suspense fallback={<p className="h-5" />}>
           <p className="text-sm text-neutral-600 dark:text-neutral-400">
             {formatDate(post.metadata.publishedAt)}
@@ -127,7 +127,7 @@ export default function Blog({ params }) {
           <Views slug={post.slug} />
         </Suspense>
       </div>
-      <article className="prose prose-quoteless prose-neutral dark:prose-invert">
+      <article>
         <CustomMDX source={post.content} />
       </article>
     </section>
