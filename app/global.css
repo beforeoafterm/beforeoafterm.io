@@ -62,7 +62,7 @@
       --destructive-foreground: #f1e4e9;
 
       --border: #f1e4e9;
-      --input: #5e3144;
+      --input: #e5cdd6;
       --ring: #e5cdd6;
     }
 
@@ -93,7 +93,6 @@
       flex-col
       bg-background
       font-slabSerif
-      text-xl
       text-foreground
       antialiased;
   }
@@ -118,7 +117,7 @@
   }
 
   a {
-    @apply font-bold underline underline-offset-4 transition-colors duration-300 hover:text-[#3DDC97];
+    @apply font-bold underline underline-offset-4 transition-colors duration-300 hover:text-muted-foreground;
   }
 
   pre::-webkit-scrollbar {
