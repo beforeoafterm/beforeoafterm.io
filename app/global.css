@@ -3,87 +3,82 @@
 @tailwind utilities;
 
 @layer base {
-  ::-moz-selection {
-    background-color: #47a3f3;
-    color: #fefefe;
-  }
-
-  ::selection {
-    background-color: #47a3f3;
-    color: #fefefe;
-  }
-
   :root {
-    --background: #F1E4E9;
-    --foreground: #432331;
+    --background: #f1e4e9;
+    --foreground: #5e3144;
 
-    --card: #F1E4E9;
-    --card-foreground: #432331;
+    --card: #f1e4e9;
+    --card-foreground: #5e3144;
 
-    --popover: #F1E4E9;
-    --popover-foreground: #432331;
+    --popover: #f1e4e9;
+    --popover-foreground: #5e3144;
 
-    --primary: #5E3144;
-    --primary-foreground: 0 0% 98%;
+    --primary: #5e3144;
+    --primary-foreground: #f1e4e9;
 
-    --secondary: 0 0% 96.1%;
-    --secondary-foreground: #5E3144;
+    --secondary: #ffd60a;
+    --secondary-foreground: #5e3144;
 
-    --muted: 0 0% 96.1%;
-    --muted-foreground: 0 0% 45.1%;
+    --muted: #e5cdd6;
+    --muted-foreground: #368f8b;
 
-    --accent: 0 0% 96.1%;
-    --accent-foreground: #5E3144;
+    --accent: #ffd60a;
+    --accent-foreground: #5e3144;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive: #e84855;
+    --destructive-foreground: #f1e4e9;
 
-    --border: 0 0% 89.8%;
-    --input: 0 0% 89.8%;
-    --ring: #432331;
+    --border: #5e3144;
+    --input: #5e3144;
+    --ring: #5e3144;
 
     --radius: 0.5rem;
   }
 
   @media (prefers-color-scheme: dark) {
     :root {
-      --background: #432331;
-      --foreground: 0 0% 98%;
+      --background: #5e3144;
+      --foreground: #f1e4e9;
 
-      --card: #432331;
-      --card-foreground: 0 0% 98%;
+      --card: #5e3144;
+      --card-foreground: #f1e4e9;
 
-      --popover: #432331;
-      --popover-foreground: 0 0% 98%;
+      --popover: #5e3144;
+      --popover-foreground: #f1e4e9;
 
-      --primary: 0 0% 98%;
-      --primary-foreground: #5E3144;
+      --primary: #f1e4e9;
+      --primary-foreground: #5e3144;
 
-      --secondary: 0 0% 14.9%;
-      --secondary-foreground: 0 0% 98%;
+      --secondary: #d3abbb;
+      --secondary-foreground: #f1e4e9;
 
-      --muted: 0 0% 14.9%;
-      --muted-foreground: 0 0% 63.9%;
+      --muted: #368f8b;
+      --muted-foreground: #e5cdd6;
 
-      --accent: 0 0% 14.9%;
-      --accent-foreground: 0 0% 98%;
+      --accent: #ffd60a;
+      --accent-foreground: #5e3144;
 
-      --destructive: 0 62.8% 30.6%;
-      --destructive-foreground: 0 0% 98%;
+      --destructive: #e84855;
+      --destructive-foreground: #f1e4e9;
 
-      --border: 0 0% 14.9%;
-      --input: 0 0% 14.9%;
-      --ring: 0 0% 83.1%;
+      --border: #f1e4e9;
+      --input: #5e3144;
+      --ring: #e5cdd6;
     }
+
     html {
       color-scheme: dark;
     }
   }
 
-  html {
-    @apply
-      dark:bg-[#012622]
-      dark:text-white;
+  ::-moz-selection {
+    background-color: var(--accent);
+    color: var(--accent-foreground);
+  }
+
+  ::selection {
+    background-color: var(--accent);
+    color: var(--accent-foreground);
   }
 
   * {
@@ -91,30 +86,26 @@
   }
 
   body {
-    @apply bg-background text-foreground font-slabSerif;
-  }
-
-  body {
-    @apply mx-4
-      mb-40
-      mt-8
+    @apply mx-auto
       flex
-      max-w-2xl
+      min-h-screen
+      max-w-4xl
       flex-col
-      antialiased
+      bg-background
+      font-slabSerif
       text-xl
-      md:flex-row
-      lg:mx-auto;
+      text-foreground
+      antialiased;
   }
 
   main {
-    @apply mt-6
-      flex
+    @apply flex
       min-w-0
       flex-auto
+      flex-grow
       flex-col
-      px-2
-      md:px-0;
+      justify-center
+      p-8;
   }
 
   table {
@@ -127,7 +118,7 @@
   }
 
   a {
-    @apply font-bold underline underline-offset-4 hover:text-[#a07178] transition-colors duration-300;
+    @apply font-bold underline underline-offset-4 transition-colors duration-300 hover:text-[#3DDC97];
   }
 
   pre::-webkit-scrollbar {
