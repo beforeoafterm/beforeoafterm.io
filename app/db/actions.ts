@@ -16,7 +16,7 @@ export async function increment(slug: string) {
 }
 
 async function getSession(): Promise<Session> {
-  let session = await auth()
+  const session = await auth()
   if (!session || !session.user) {
     throw new Error('Unauthorized')
   }
@@ -25,16 +25,16 @@ async function getSession(): Promise<Session> {
 }
 
 export async function saveGuestbookEntry(formData: FormData) {
-  let session = await getSession()
-  let email = session.user?.email as string
-  let created_by = session.user?.name as string
+  const session = await getSession()
+  const email = session.user?.email as string
+  const created_by = session.user?.name as string
 
   if (!session.user) {
     throw new Error('Unauthorized')
   }
 
-  let entry = formData.get('entry')?.toString() || ''
-  let body = entry.slice(0, 500)
+  const entry = formData.get('entry')?.toString() || ''
+  const body = entry.slice(0, 500)
 
   await sql`
     INSERT INTO guestbook (email, body, created_by, created_at)
@@ -43,34 +43,34 @@ export async function saveGuestbookEntry(formData: FormData) {
 
   revalidatePath('/guestbook')
 
-  let data = await fetch('https://api.resend.com/emails', {
+  const data = await fetch('https://api.resend.com/emails', {
     method: 'POST',
     headers: {
       Authorization: `Bearer ${process.env.RESEND_SECRET}`,
-      'Content-Type': 'application/json',
+      'Content-Type': 'application/json'
     },
     body: JSON.stringify({
       from: 'guestbook@beforeoafterm.tioi.network',
       to: 'me@beforeoafterm.tioi.network',
       subject: 'New Guestbook Entry',
-      html: `<p>Email: ${email}</p><p>Message: ${body}</p>`,
-    }),
+      html: `<p>Email: ${email}</p><p>Message: ${body}</p>`
+    })
   })
 
-  let response = await data.json()
+  const response = await data.json()
   console.log('Email sent', response)
 }
 
 export async function deleteGuestbookEntries(selectedEntries: string[]) {
-  let session = await getSession()
-  let email = session.user?.email as string
+  const session = await getSession()
+  const email = session.user?.email as string
 
   if (email !== 'me@beforeoafterm.tioi.network') {
     throw new Error('Unauthorized')
   }
 
-  let selectedEntriesAsNumbers = selectedEntries.map(Number)
-  let arrayLiteral = `{${selectedEntriesAsNumbers.join(',')}}`
+  const selectedEntriesAsNumbers = selectedEntries.map(Number)
+  const arrayLiteral = `{${selectedEntriesAsNumbers.join(',')}}`
 
   await sql`
     DELETE FROM guestbook

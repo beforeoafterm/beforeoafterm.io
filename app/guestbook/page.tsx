@@ -6,13 +6,13 @@ import Form from './form'
 
 export const metadata = {
   title: 'Guestbook',
-  description: 'Sign my guestbook and leave your mark.',
+  description: 'Sign my guestbook and leave your mark.'
 }
 
 export default function GuestbookPage() {
   return (
     <section>
-      <h1 className="font-medium text-2xl mb-8 tracking-tighter">
+      <h1 className="mb-8 text-2xl font-medium tracking-tighter">
         sign my guestbook
       </h1>
       <Suspense>
@@ -24,7 +24,7 @@ export default function GuestbookPage() {
 }
 
 async function GuestbookForm() {
-  let session = await auth()
+  const session = await auth()
 
   return session?.user ? (
     <>
@@ -37,16 +37,16 @@ async function GuestbookForm() {
 }
 
 async function GuestbookEntries() {
-  let entries = await getGuestbookEntries()
+  const entries = await getGuestbookEntries()
 
   if (entries.length === 0) {
     return null
   }
 
   return entries.map((entry) => (
-    <div key={entry.id} className="flex flex-col space-y-1 mb-4">
-      <div className="w-full text-sm break-words">
-        <span className="text-neutral-600 dark:text-neutral-400 mr-1">
+    <div key={entry.id} className="mb-4 flex flex-col space-y-1">
+      <div className="w-full break-words text-sm">
+        <span className="mr-1 text-neutral-600 dark:text-neutral-400">
           {entry.created_by}:
         </span>
         {entry.body}
