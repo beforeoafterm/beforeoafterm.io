@@ -23,8 +23,7 @@ export default function Page() {
       </p>
       <p className={styles.Home_subheadingText}>
         I work with people to build scalable full-stack systems and co-found
-        companies with people working on fintech, Web3, and remote team
-        productivity.
+        companies working on fintech, Web3, and remote team productivity.
       </p>
       <div className={styles.Home_cta}>
         <Button asChild size="sm">
