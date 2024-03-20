@@ -107,6 +107,14 @@
       p-8;
   }
 
+  h1 {
+    @apply mb-4
+    font-serif
+    text-4xl
+    leading-[normal]
+    md:text-6xl;
+  }
+
   table {
     display: block;
     max-width: -webkit-fit-content;

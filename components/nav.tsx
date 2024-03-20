@@ -23,10 +23,7 @@ export function Navbar() {
   const pathname = usePathname()
   return (
     <footer className="sticky bottom-0 border border-b-0 border-muted bg-background p-4 drop-shadow-2xl">
-      <nav
-        className="fade relative flex scroll-pr-6 flex-row items-start"
-        id="nav"
-      >
+      <nav className="fade relative flex scroll-pr-6 flex-row items-start">
         <div className="flex flex-row justify-between">
           {Object.entries(navItems).map(([path, { name }]) => {
             return (
