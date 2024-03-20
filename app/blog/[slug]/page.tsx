@@ -2,10 +2,10 @@ import type { Metadata } from 'next'
 import { Suspense, cache } from 'react'
 import { notFound } from 'next/navigation'
 import { CustomMDX } from '@/components/mdx'
-import { getViewsCount } from 'app/db/queries'
-import { getBlogPosts } from 'app/db/blog'
+import { getViewsCount } from '@/lib/db/queries'
+import { getBlogPosts } from '@/lib/db/blog'
 import ViewCounter from '../view-counter'
-import { increment } from 'app/db/actions'
+import { increment } from '@/lib/db/actions'
 import { unstable_noStore as noStore } from 'next/cache'
 
 export async function generateMetadata({
