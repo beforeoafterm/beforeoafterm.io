@@ -5,6 +5,7 @@ import styles from './page.module.css'
 import {
   ArrowRightIcon,
   DownloadIcon,
+  EyeOpenIcon,
   LinkedInLogoIcon
 } from '@radix-ui/react-icons'
 import Link from 'next/link'
@@ -36,9 +37,15 @@ export default function Page() {
             <LinkedInLogoIcon className="ml-2 h-4 w-4" />
           </Link>
         </Button>
-        <Button variant="link" size="sm">
-          Get my resume
-          <DownloadIcon className="ml-2 h-4 w-4" />
+        <Button asChild variant="link" size="sm">
+          <Link
+            className="no-underline"
+            target="_blank"
+            href="https://1drv.ms/b/s!Ar9Jwg9549pZgf5VAUAUEA6B-PAPQQ?e=2Kt90m"
+          >
+            View my resume
+            <EyeOpenIcon className="ml-2 h-4 w-4" />
+          </Link>
         </Button>
       </div>
       <Button
