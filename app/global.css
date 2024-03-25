@@ -126,7 +126,15 @@
     font-serif
     text-3xl
     leading-[normal]
-    lg:text-5xl;
+    lg:text-6xl;
+  }
+
+  h2 {
+    @apply mb-4
+      font-serif
+      text-2xl
+      font-bold
+      lg:text-4xl;
   }
 
   table {
@@ -166,11 +174,11 @@
   }
 
   ._label {
-    @apply mx-2
-      inline-block
+    @apply inline-block
       rounded-lg
       border
       border-primary
+      bg-primary-foreground
       p-1
       px-3
       align-middle
@@ -185,7 +193,7 @@
   }
 
   a._label {
-    @apply no-underline
+    @apply mx-2 no-underline
       hover:text-primary
       hover:shadow-sm
       hover:shadow-muted-foreground;

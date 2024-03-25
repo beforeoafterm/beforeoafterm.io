@@ -1,0 +1,15 @@
+.ProjectsPage {
+  @apply w-full;
+}
+
+.Projects {
+  @apply grid w-full grid-cols-1 gap-8 md:grid-cols-2;
+}
+
+.ProjectsPage_headingText {
+  @apply mb-12;
+}
+
+a.Projects_item {
+  @apply no-underline;
+}

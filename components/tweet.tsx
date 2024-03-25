@@ -4,7 +4,7 @@ import {
   TweetSkeleton,
   EmbeddedTweet,
   TweetNotFound,
-  type TweetProps,
+  type TweetProps
 } from 'react-tweet'
 import './tweet.css'
 
@@ -35,9 +35,9 @@ export async function TweetComponent({ id }: { id: string }) {
   return (
     <div className="tweet my-6">
       <div className={`flex justify-center`}>
-        {/* <Suspense fallback={<TweetSkeleton />}> */}
-        <ReactTweet id={id} />
-        {/* </Suspense> */}
+        <Suspense fallback={<TweetSkeleton />}>
+          <ReactTweet id={id} />
+        </Suspense>
       </div>
     </div>
   )
