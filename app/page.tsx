@@ -4,7 +4,6 @@ import { Button } from '@/components/ui/button'
 import styles from './page.module.css'
 import {
   ArrowRightIcon,
-  DownloadIcon,
   EyeOpenIcon,
   LinkedInLogoIcon
 } from '@radix-ui/react-icons'
