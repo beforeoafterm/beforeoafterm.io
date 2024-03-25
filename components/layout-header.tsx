@@ -23,13 +23,25 @@ export function LayoutHeader() {
         <Navbar />
       </div>
       <div className="my-8 flex gap-6">
-        <a href="https://github.com/beforeoafterm" target="_blank">
+        <a
+          href="https://github.com/beforeoafterm"
+          target="_blank"
+          className="text-[#368F8B] hover:text-primary"
+        >
           <GitHubLogoIcon className="h-6 w-6" />
         </a>
-        <a href="https://linkedin.com/in/beforeoafterm" target="_blank">
+        <a
+          href="https://linkedin.com/in/beforeoafterm"
+          target="_blank"
+          className="text-[#368F8B] hover:text-primary"
+        >
           <LinkedInLogoIcon className="h-6 w-6" />
         </a>
-        <a href="https://x.com/beforeoafterm" target="_blank">
+        <a
+          href="https://x.com/beforeoafterm"
+          target="_blank"
+          className="text-[#368F8B] hover:text-primary"
+        >
           <XLogoIcon className="h-6 w-6" />
         </a>
       </div>
