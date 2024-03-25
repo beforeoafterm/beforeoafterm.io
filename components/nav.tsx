@@ -16,6 +16,9 @@ const navItems = {
   },
   '/blog': {
     name: 'blog'
+  },
+  '/meet': {
+    name: 'meet me'
   }
 }
 
