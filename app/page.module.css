@@ -1,4 +1,8 @@
 .Home {
+  @apply flex flex-col justify-between gap-8;
+}
+
+.Home_content {
   @apply flex flex-col gap-8;
 }
 
@@ -7,5 +11,5 @@
 }
 
 .Home_subheadingText {
-  @apply text-primary md:text-2xl;
+  @apply text-primary lg:text-2xl;
 }

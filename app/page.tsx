@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button'
 import styles from './page.module.css'
 import {
   ArrowRightIcon,
-  EyeOpenIcon,
+  CalendarIcon,
   LinkedInLogoIcon
 } from '@radix-ui/react-icons'
 import Link from 'next/link'
@@ -14,41 +14,46 @@ export default function Page() {
   const router = useRouter()
   return (
     <section className={styles.Home}>
-      <h1 className={styles.Home_headingText}>
-        Hello, you may call me <strong className="font-slabSerif">N</strong>. 👋🏼
-      </h1>
-      <p className={styles.Home_subheadingText}>
-        I am a Philippine-based software engineer, technical leader & mentor.
-      </p>
-      <p className={styles.Home_subheadingText}>
-        I work with people to build scalable full-stack systems and co-found
-        companies working on fintech, Web3, and remote team productivity.
-      </p>
-      <div className={styles.Home_cta}>
-        <Button asChild size="sm">
-          <Link
-            className="no-underline hover:text-primary-foreground"
-            target="_blank"
-            href="https://linkedin.com/in/beforeoafterm"
-          >
-            Connect with me on LinkedIn
-            <LinkedInLogoIcon className="ml-2 h-4 w-4" />
-          </Link>
-        </Button>
-        <Button asChild variant="link" size="sm">
-          <Link
-            className="no-underline"
-            target="_blank"
-            href="https://1drv.ms/b/s!Ar9Jwg9549pZgf5VAUAUEA6B-PAPQQ?e=2Kt90m"
-          >
-            View my resume
-            <EyeOpenIcon className="ml-2 h-4 w-4" />
-          </Link>
-        </Button>
+      <div className={styles.Home_content}>
+        <h1 className={styles.Home_headingText}>
+          Hello, you may call me <strong className="font-slabSerif">N</strong>.
+          👋🏼
+        </h1>
+        <p className={styles.Home_subheadingText}>
+          I am a Philippine-based software engineer, technical leader & mentor.
+        </p>
+        <p className={styles.Home_subheadingText}>
+          I've had the privilege of work with people to architect and build
+          scalable solutions for remittance-lending services (Zendmo), a Web3
+          platform for erotic arts (NFTreats), and talent management focused on
+          remote work productivity (Tioi Network).
+        </p>
+        <div className={styles.Home_cta}>
+          <Button asChild size="sm">
+            <Link
+              className="no-underline hover:text-primary-foreground"
+              target="_blank"
+              href="https://calendly.com/n-tioi-network/meet-greet"
+            >
+              Book a call with me
+              <CalendarIcon className="ml-2 h-4 w-4" />
+            </Link>
+          </Button>
+          <Button asChild variant="link" size="sm">
+            <Link
+              className="no-underline"
+              target="_blank"
+              href="https://linkedin.com/in/beforeoafterm"
+            >
+              Connect with me on LinkedIn
+              <LinkedInLogoIcon className="ml-2 h-4 w-4" />
+            </Link>
+          </Button>
+        </div>
       </div>
       <Button
         variant="link"
-        className="mx-auto mt-8 w-fit md:mr-0"
+        className="mx-auto my-6 w-fit md:mr-0"
         onClick={() => router.push('/projects')}
       >
         Check my projects

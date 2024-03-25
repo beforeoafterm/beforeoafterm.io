@@ -5,7 +5,6 @@ import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import { SandpackCSS } from '@/app/blog/[slug]/sandpack'
 import { LayoutHeader } from '@/components/layout-header'
-import { Navbar } from '@/components/nav'
 import { cn } from '@/lib/utils'
 
 const fontSlabSerif = FontSlabSerif({
