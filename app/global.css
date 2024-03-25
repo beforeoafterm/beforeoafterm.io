@@ -16,14 +16,14 @@
     --primary: #5e3144;
     --primary-foreground: #f1e4e9;
 
-    --secondary: #ffd60a;
+    --secondary: #ffd400;
     --secondary-foreground: #5e3144;
 
     --muted: #e5cdd6;
     --muted-foreground: #235d5a;
 
-    --accent: #ffd60a;
-    --accent-foreground: #5e3144;
+    --accent: #ffd400;
+    --accent-foreground: #806a00;
 
     --destructive: #e84855;
     --destructive-foreground: #f1e4e9;
@@ -86,33 +86,45 @@
   }
 
   body {
-    @apply mx-auto
-      flex
+    @apply relative
+      mx-auto
       min-h-screen
-      max-w-4xl
-      flex-col
       bg-background
       font-slabSerif
       text-foreground
-      antialiased;
+      antialiased
+      lg:flex
+      lg:flex-row
+      lg:gap-8
+      lg:px-8;
+  }
+
+  header {
+    @apply p-6
+      lg:sticky
+      lg:top-0
+      lg:max-h-screen
+      lg:w-2/5
+      lg:px-0
+      lg:py-24;
   }
 
   main {
     @apply flex
       min-w-0
-      flex-auto
-      flex-grow
-      flex-col
-      justify-center
-      p-8;
+      px-6
+      pb-6
+      lg:w-3/5
+      lg:px-0
+      lg:py-24;
   }
 
   h1 {
     @apply mb-4
     font-serif
-    text-4xl
+    text-3xl
     leading-[normal]
-    md:text-6xl;
+    md:text-5xl;
   }
 
   table {
