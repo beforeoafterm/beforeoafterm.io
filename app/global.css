@@ -164,4 +164,29 @@
   .title {
     @apply text-balance;
   }
+
+  ._label {
+    @apply mx-2
+      inline-block
+      rounded-lg
+      border
+      border-primary
+      p-1
+      px-3
+      align-middle
+      font-serif
+      text-xs
+      tracking-widest
+      text-primary
+      shadow-inner
+      shadow-muted-foreground
+      transition-all
+      duration-300
+      hover:shadow-sm
+      hover:shadow-muted-foreground;
+  }
+
+  a._label {
+    @apply no-underline hover:text-primary;
+  }
 }

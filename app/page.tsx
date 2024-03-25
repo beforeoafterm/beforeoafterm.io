@@ -24,22 +24,26 @@ export default function Page() {
         </p>
         <p className={styles.Home_subheadingText}>
           I've had the privilege of work with people to architect and build
-          scalable solutions for remittance-lending services (
-          <a href="https://zendmo.com" target="_blank">
+          scalable solutions for remittance-lending services
+          <a className="_label" href="https://zendmo.com" target="_blank">
             Zendmo
           </a>
-          ), a Web3 platform for erotic arts (
-          <a href="https://market.nftreats.art" target="_blank">
+          , a Web3 platform for erotic arts
+          <a
+            className="_label"
+            href="https://market.nftreats.art"
+            target="_blank"
+          >
             NFTreats
           </a>
-          ), and talent management focused on remote work productivity (
-          <a href="https://tioi.network" target="_blank">
+          , and talent management focused on remote work productivity
+          <a className="_label" href="https://tioi.network" target="_blank">
             Tioi Network
           </a>
-          ).
+          .
         </p>
         <div className={styles.Home_cta}>
-          <Button asChild size="sm">
+          <Button asChild variant="outline" size="sm">
             <Link
               className="no-underline hover:text-primary-foreground"
               target="_blank"
@@ -62,7 +66,6 @@ export default function Page() {
         </div>
       </div>
       <Button
-        variant="outline"
         className="mx-auto my-6 w-fit md:mr-0"
         onClick={() => router.push('/projects')}
       >
