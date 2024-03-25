@@ -95,18 +95,20 @@
       antialiased
       lg:flex
       lg:flex-row
-      lg:gap-8
-      lg:px-8;
+      lg:gap-12
+      lg:px-12;
   }
 
   header {
-    @apply p-6
+    @apply flex
+      flex-col
+      p-6
       lg:sticky
       lg:top-0
       lg:max-h-screen
       lg:w-2/5
       lg:px-0
-      lg:py-24;
+      lg:pt-24;
   }
 
   main {
@@ -116,7 +118,7 @@
       pb-6
       lg:w-3/5
       lg:px-0
-      lg:py-24;
+      lg:pt-24;
   }
 
   h1 {
@@ -124,7 +126,7 @@
     font-serif
     text-3xl
     leading-[normal]
-    md:text-5xl;
+    lg:text-5xl;
   }
 
   table {
