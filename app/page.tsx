@@ -24,9 +24,19 @@ export default function Page() {
         </p>
         <p className={styles.Home_subheadingText}>
           I've had the privilege of work with people to architect and build
-          scalable solutions for remittance-lending services (Zendmo), a Web3
-          platform for erotic arts (NFTreats), and talent management focused on
-          remote work productivity (Tioi Network).
+          scalable solutions for remittance-lending services (
+          <a href="https://zendmo.com" target="_blank">
+            Zendmo
+          </a>
+          ), a Web3 platform for erotic arts (
+          <a href="https://market.nftreats.art" target="_blank">
+            NFTreats
+          </a>
+          ), and talent management focused on remote work productivity (
+          <a href="https://tioi.network" target="_blank">
+            Tioi Network
+          </a>
+          ).
         </p>
         <div className={styles.Home_cta}>
           <Button asChild size="sm">
@@ -52,7 +62,7 @@ export default function Page() {
         </div>
       </div>
       <Button
-        variant="link"
+        variant="outline"
         className="mx-auto my-6 w-fit md:mr-0"
         onClick={() => router.push('/projects')}
       >
