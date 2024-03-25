@@ -24,11 +24,11 @@ const projects: Array<Project> = [
     ]
   },
   {
-    name: 'A NFT marketplace for adult content creators',
+    name: 'A NFT marketplace for erotic art creators',
     description:
       'nftreats.art aims to provide an inclusive, passionate, and open platform for lovers and creators of erotic arts.',
     url: 'https://market.nftreats.art',
-    coverImageSrc: '/images/zendmo.png',
+    coverImageSrc: '/images/playbooks.athenago.com.jpg',
     techStack: [
       'ESLint',
       'ethereumjs',
@@ -42,10 +42,10 @@ const projects: Array<Project> = [
     ]
   },
   {
-    name: 'Tioi Network',
+    name: 'A learning platform for recording artists',
     description: 'Talent management focused on remote work productivity',
-    url: 'https://tioi.network',
-    coverImageSrc: '/images/zendmo.png',
+    url: 'http://web.archive.org/web/20221128085646/https://www.artkipelago.com/',
+    coverImageSrc: '/images/playbooks.athenago.com.jpg',
     techStack: [
       'React',
       'Contentful',

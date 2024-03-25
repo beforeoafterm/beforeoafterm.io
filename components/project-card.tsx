@@ -23,18 +23,19 @@ export function ProjectCard({ project }: { project: Project }) {
           {project.description}
         </p>
         <Button
-          className="mt-4"
+          className="-ml-3 mt-4"
           size="sm"
-          variant="outline"
+          variant="link"
           onClick={(event) => {
             event.stopPropagation()
             setIsTechStackVisible((prev) => !prev)
           }}
         >
+          {isTechStackVisible ? 'Hide' : 'Tech Stack'}
           {isTechStackVisible ? (
-            <EyeClosedIcon className="h-4 w-4" />
+            <EyeClosedIcon className="ml-2 h-4 w-4" />
           ) : (
-            <EyeOpenIcon className="h-4 w-4" />
+            <EyeOpenIcon className="ml-2 h-4 w-4" />
           )}
         </Button>
         <div
