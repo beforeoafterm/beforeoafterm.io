@@ -18,7 +18,7 @@ export function ProjectCard({ project }: { project: Project }) {
       >
         <div className="absolute inset-0 -z-10 rounded-lg backdrop-blur-sm"></div>
         <a className="no-underline" href={project.url} target="_blank">
-          <h2 className="mb-12 tracking-wider">{project.name}</h2>
+          <h2 className="mb-12 text-[1.75rem] tracking-wide">{project.name}</h2>
         </a>
         <p className="font-normal text-muted-foreground">
           {project.description}
