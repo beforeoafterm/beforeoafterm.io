@@ -11,15 +11,16 @@ export function ProjectCard({ project }: { project: Project }) {
   return (
     <article key={project.url} className="w-full">
       <div
-        className="rounded-lg bg-muted bg-cover p-8 bg-blend-soft-light backdrop-blur transition-all duration-300"
+        className="relative rounded-lg border border-border bg-muted bg-cover bg-center p-8 bg-blend-soft-light shadow-md shadow-ring backdrop-blur-sm transition-all duration-300 hover:shadow-inner hover:shadow-muted-foreground dark:shadow-muted-foreground"
         style={{
           backgroundImage: `url(${project.coverImageSrc})`
         }}
       >
-        <a href={project.url} target="_blank">
-          <h2 className="text-lg">{project.name}</h2>
+        <div className="absolute inset-0 -z-10 rounded-lg backdrop-blur-sm"></div>
+        <a className="no-underline" href={project.url} target="_blank">
+          <h2 className="mb-12 tracking-wider">{project.name}</h2>
         </a>
-        <p className="font-normal text-secondary-foreground dark:text-secondary">
+        <p className="font-normal text-muted-foreground">
           {project.description}
         </p>
         <Button
