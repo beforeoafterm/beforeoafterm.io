@@ -5,12 +5,37 @@ import { ProjectCard } from '@/components/project-card'
 import { url } from 'inspector'
 import { CalendarIcon } from '@radix-ui/react-icons'
 import Link from 'next/link'
+import events from 'events'
 
 const projects: Array<Project> = [
   {
-    name: 'A digital library of playbooks for mastering delegation',
+    name: 'Artkipelago',
     description:
-      'Built the frontend with React to use Contentful for publishing and managing the Playbooks content of athenago.com.',
+      'Customized an online educational platform for aspiring creatives, offering various courses and virtual workshops using Thinkific.',
+    url: 'http://web.archive.org/web/20221128085646/https://www.artkipelago.com/',
+    coverImageSrc: '/images/artkipelago.com.jpg',
+    techStack: ['CSS', 'HTML', 'JavaScript', 'Liquid', 'Thinkific']
+  },
+  {
+    name: 'AQWIRE Payment Portal',
+    description:
+      'Built the auto-debit facility of their cross border payments platform. Also, helped their team migrate the web app into a single-instance payment portal for all clients.',
+    url: 'https://reversenumber.org',
+    coverImageSrc: '/images/pay.aqwire.io.jpg',
+    techStack: [
+      'Angular',
+      'Ant Design',
+      'Bottle',
+      'Gitlab',
+      'MongoDB',
+      'Python',
+      'Stripe'
+    ]
+  },
+  {
+    name: 'Athena Playbook Library',
+    description:
+      'A digital library of playbooks for mastering delegation. Built the web app with React. This uses Contentful for managing the Playbooks content of athenago.com.',
     url: 'https://playbooks.athenago.com',
     coverImageSrc: '/images/playbooks.athenago.com.jpg',
     techStack: [
@@ -18,7 +43,7 @@ const projects: Array<Project> = [
       'ESLint',
       'Firebase',
       'GitHub Actions',
-      'Mixpanel',
+      'MobX',
       'Percy',
       'React',
       'Sentry',
@@ -27,30 +52,65 @@ const projects: Array<Project> = [
     ]
   },
   {
-    name: 'A NFT marketplace for erotic art creators (NSFW)',
+    name: 'The HIVE Virtual Events Hub',
     description:
-      'Consulted for The Treat Factory to build an inclusive, passionate, and open Web3 platform for lovers and creators of erotic art.',
+      'Co-developed a 3D-rendered virtual events platform with system integrators, providing a personalized and immersive events experience during the pandemic.',
+    url: 'https://www.facebook.com/weareliveph/videos/936486463619244',
+    coverImageSrc: '/images/livehive.ph.jpg',
+    techStack: [
+      'AWS EC2',
+      'Express',
+      'Nuxt',
+      'PostgreSQL',
+      'Socket.io',
+      'Strapi',
+      'Vue'
+    ]
+  },
+  {
+    name: 'nftreats.art NFT Marketplace (NSFW)',
+    description:
+      'A NFT marketplace for erotic art creators. Consulted for the Treat Factory to build an inclusive, passionate, and open Web3 platform for lovers and creators of erotic art.',
     url: 'https://market.nftreats.art',
     coverImageSrc: '/images/nftreats.art.webp',
     techStack: [
       'ESLint',
-      'ethereumjs',
+      'Ethers.js',
       'GitHub Actions',
       'Nuxt.js',
-      'Solidity',
       'Percy',
       'Polygon (Matic)',
+      'Solidity',
       'Tailwind CSS',
-      'Truffle'
+      'Truffle',
+      'Wallet Connect'
     ]
   },
   {
-    name: 'A learning platform for recording artists',
+    name: 'ReverseNumber.org',
     description:
-      'Developed an online educational platform for creatives, offering various courses and workshops using Thinkific.',
-    url: 'http://web.archive.org/web/20221128085646/https://www.artkipelago.com/',
-    coverImageSrc: '/images/artkipelago.com.jpg',
-    techStack: ['PHP', 'Thinkific', 'CSS', 'HTML', 'JavaScript']
+      'A reverse lookup online service. Designed solutions and led the modernization of reverse lookup services.',
+    url: 'https://reversenumber.org',
+    coverImageSrc: '/images/reversenumber.org.jpg',
+    techStack: [
+      'CSS',
+      'GitHub',
+      'HTML',
+      'JavaScript',
+      'MySQL',
+      'PayPal',
+      'PHP',
+      'Stripe',
+      'Twilio'
+    ]
+  },
+  {
+    name: 'STIHL iMow Web App',
+    description:
+      "A web app for managing and controlling a user's iMow Robot Mowers.",
+    url: 'https://app.imow.stihl.com',
+    coverImageSrc: '/images/app.imow.stihl.com.jpg',
+    techStack: ['Angular', 'Bootstrap', 'Firebase', 'Git', 'PHP', 'Symfony']
   }
 ]
 
