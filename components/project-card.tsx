@@ -11,12 +11,12 @@ export function ProjectCard({ project }: { project: Project }) {
   return (
     <article key={project.url} className="w-full">
       <div
-        className="relative rounded-lg border border-border bg-muted bg-cover bg-center p-8 bg-blend-soft-light shadow-md shadow-ring backdrop-blur-sm transition-all duration-300 hover:shadow-inner hover:shadow-muted-foreground dark:shadow-muted-foreground"
+        className="relative overflow-hidden rounded-3xl border border-border bg-muted bg-cover bg-center p-8 bg-blend-soft-light shadow-md shadow-ring backdrop-blur-sm transition-all duration-300 hover:shadow-inner hover:shadow-muted-foreground dark:shadow-muted-foreground"
         style={{
           backgroundImage: `url(${project.coverImageSrc})`
         }}
       >
-        <div className="absolute inset-0 -z-10 rounded-lg backdrop-blur-sm"></div>
+        <div className="absolute inset-0 -z-10 rounded-3xl backdrop-blur-[1px]"></div>
         <a className="no-underline" href={project.url} target="_blank">
           <h2 className="mb-12 text-[1.75rem] tracking-wide">{project.name}</h2>
         </a>
