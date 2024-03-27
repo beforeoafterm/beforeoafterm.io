@@ -17,7 +17,7 @@ const fontSerif = FontSerif({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://beforeoafterm.tioi.network'),
+  metadataBase: new URL('https://beforeoafterm-io.vercel.app'),
   title: {
     default: 'Ronneil Petterson',
     template: '%s | Ronneil Petterson'
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Ronneil Petterson',
     description: 'Software engineer, technical leader, and mentor.',
-    url: 'https://beforeoafterm.tioi.network',
+    url: 'https://beforeoafterm-io.vercel.app',
     siteName: 'Ronneil Petterson',
     locale: 'en_US',
     type: 'website'

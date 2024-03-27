@@ -2,10 +2,10 @@ export default function robots() {
   return {
     rules: [
       {
-        userAgent: '*',
-      },
+        userAgent: '*'
+      }
     ],
-    sitemap: 'https://beforeoafterm.tioi.network/sitemap.xml',
-    host: 'https://beforeoafterm.tioi.network',
+    sitemap: 'https://beforeoafterm-io.vercel.app/sitemap.xml',
+    host: 'https://beforeoafterm-io.vercel.app'
   }
 }

@@ -21,7 +21,7 @@ export async function GET(req: NextRequest) {
           flexDirection: 'column',
           alignItems: 'flex-start',
           justifyContent: 'center',
-          backgroundImage: 'url(https://beforeoafterm.tioi.network/og-bg.png)'
+          backgroundImage: 'url(https://beforeoafterm-io.vercel.app/og-bg.png)'
         }}
       >
         <div

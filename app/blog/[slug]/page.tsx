@@ -23,8 +23,8 @@ export async function generateMetadata({
     image
   } = post.metadata
   const ogImage = image
-    ? `https://beforeoafterm.tioi.network${image}`
-    : `https://beforeoafterm.tioi.network/og?title=${title}`
+    ? `https://beforeoafterm-io.vercel.app${image}`
+    : `https://beforeoafterm-io.vercel.app/og?title=${title}`
 
   return {
     title,
@@ -34,7 +34,7 @@ export async function generateMetadata({
       description,
       type: 'article',
       publishedTime,
-      url: `https://beforeoafterm.tioi.network/blog/${post.slug}`,
+      url: `https://beforeoafterm-io.vercel.app/blog/${post.slug}`,
       images: [
         {
           url: ogImage
@@ -104,9 +104,9 @@ export default function Blog({ params }) {
             dateModified: post.metadata.publishedAt,
             description: post.metadata.summary,
             image: post.metadata.image
-              ? `https://beforeoafterm.tioi.network${post.metadata.image}`
-              : `https://beforeoafterm.tioi.network/og?title=${post.metadata.title}`,
-            url: `https://beforeoafterm.tioi.network/blog/${post.slug}`,
+              ? `https://beforeoafterm-io.vercel.app${post.metadata.image}`
+              : `https://beforeoafterm-io.vercel.app/og?title=${post.metadata.title}`,
+            url: `https://beforeoafterm-io.vercel.app/blog/${post.slug}`,
             author: {
               '@type': 'Person',
               name: 'Lee Robinson'
