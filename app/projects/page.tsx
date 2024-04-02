@@ -92,7 +92,7 @@ const projects: Array<Project> = [
     description:
       'A NFT marketplace for erotic art creators. Consulted for the Treat Factory to build an inclusive, passionate, and open Web3 platform for lovers and creators of erotic art.',
     url: 'https://market.nftreats.art',
-    coverImageSrc: '/images/nftreats.art.webp',
+    coverImageSrc: '/images/market.nftreats.art.jpg',
     techStack: [
       'ESLint',
       'Ethers.js',
