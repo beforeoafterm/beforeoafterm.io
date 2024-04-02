@@ -43,12 +43,32 @@ const projects: Array<Project> = [
       'ESLint',
       'Firebase',
       'GitHub Actions',
+      'Jest',
       'MobX',
       'Percy',
       'React',
       'Sentry',
       'Tailwind CSS',
-      'TanStack Query'
+      'TanStack Query',
+      'TypeScript'
+    ]
+  },
+  {
+    name: 'Athena Web Component Library',
+    description:
+      'A UI Kit to maintain design consistency across all Athena web products. Developed the library with React and Storybook.',
+    url: 'https://web-component-library.web.app',
+    coverImageSrc: '/images/web-component-library.web.app.jpg',
+    techStack: [
+      'ESLint',
+      'Firebase',
+      'GitHub Actions',
+      'Jest',
+      'React',
+      'Rollup',
+      'Storybook',
+      'Tailwind CSS',
+      'TypeScript'
     ]
   },
   {
@@ -89,7 +109,7 @@ const projects: Array<Project> = [
   {
     name: 'ReverseNumber.org',
     description:
-      'A reverse lookup online service. Designed solutions and led the modernization of reverse lookup services.',
+      'A reverse lookup SaaS platform. Designed solutions and led the modernization of reverse lookup online services.',
     url: 'https://reversenumber.org',
     coverImageSrc: '/images/reversenumber.org.jpg',
     techStack: [
