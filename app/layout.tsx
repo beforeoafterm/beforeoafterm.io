@@ -6,6 +6,7 @@ import { SpeedInsights } from '@vercel/speed-insights/next'
 import { SandpackCSS } from '@/app/blog/[slug]/sandpack'
 import { LayoutHeader } from '@/components/layout-header'
 import { cn } from '@/lib/utils'
+import Cursor from '@/components/cursor'
 
 const fontSlabSerif = FontSlabSerif({
   subsets: ['latin'],
@@ -70,6 +71,7 @@ export default function RootLayout({
         </footer> */}
         <Analytics />
         <SpeedInsights />
+        <Cursor />
       </body>
     </html>
   )
