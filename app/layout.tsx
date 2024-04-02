@@ -4,9 +4,9 @@ import { Aleo as FontSlabSerif, Quicksand as FontSerif } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import { SandpackCSS } from '@/app/blog/[slug]/sandpack'
+import BackgroundCursorShadow from '@/components/background-cursor-shadow'
 import { LayoutHeader } from '@/components/layout-header'
 import { cn } from '@/lib/utils'
-import Cursor from '@/components/cursor'
 
 const fontSlabSerif = FontSlabSerif({
   subsets: ['latin'],
@@ -71,7 +71,7 @@ export default function RootLayout({
         </footer> */}
         <Analytics />
         <SpeedInsights />
-        <Cursor />
+        <BackgroundCursorShadow />
       </body>
     </html>
   )
