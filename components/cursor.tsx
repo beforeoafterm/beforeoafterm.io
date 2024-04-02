@@ -5,9 +5,9 @@ import { useMouse } from '@uidotdev/usehooks'
 import { motion } from 'framer-motion'
 
 const Cursor: React.FC = () => {
-  const [state, ref] = useMouse()
+  const [state] = useMouse()
 
-  const size = 600
+  const size = 500
   const halfSize = size / 2
 
   return (
