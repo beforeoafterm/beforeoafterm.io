@@ -6,7 +6,7 @@ export default async function sitemap() {
     lastModified: post.metadata.publishedAt
   }))
 
-  const routes = ['', '/blog', '/guestbook', '/uses', '/work'].map((route) => ({
+  const routes = ['', '/projects'].map((route) => ({
     url: `https://beforeoafterm-io.vercel.app${route}`,
     lastModified: new Date().toISOString().split('T')[0]
   }))
