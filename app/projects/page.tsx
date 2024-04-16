@@ -20,7 +20,7 @@ const projects: Array<Project> = [
     name: 'AQWIRE Payment Portal',
     description:
       'Built the auto-debit facility of their cross border payments platform. Also, helped their team migrate the web app into a single-instance payment portal for all clients.',
-    url: 'https://reversenumber.org',
+    url: 'https://pay.aqwire.io',
     coverImageSrc: '/images/pay.aqwire.io.jpg',
     techStack: [
       'Angular',
