@@ -220,7 +220,7 @@ export default function Page() {
         <Link
           className="no-underline hover:text-primary-foreground"
           target="_blank"
-          href="https://calendly.com/n-tioi-network/meet-greet"
+          href="https://calendly.com/n-tioi-network/intro-call"
         >
           Book a call with me
           <CalendarIcon className="ml-2 h-4 w-4" />
