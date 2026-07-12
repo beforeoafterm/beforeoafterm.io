@@ -8,7 +8,7 @@ export function LayoutHeader() {
     <header>
       <div>
         <Link href="/" className="no-underline hover:text-primary">
-          <h1 className="mb-2 font-slabSerif font-bold lg:text-4xl">
+          <h1 className="mb-2 font-bold lg:text-4xl">
             Ronneil Petterson
           </h1>
         </Link>

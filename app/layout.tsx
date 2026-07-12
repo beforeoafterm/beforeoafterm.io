@@ -1,11 +1,12 @@
 import './global.css'
 import type { Metadata } from 'next'
-import { Aleo as FontSlabSerif, Quicksand as FontSerif } from 'next/font/google'
+import { Aleo as FontSlabSerif, Fraunces as FontSerif } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import { SandpackCSS } from '@/app/blog/[slug]/sandpack'
 import BackgroundCursorShadow from '@/components/background-cursor-shadow'
 import { LayoutHeader } from '@/components/layout-header'
+import { ViewTransitions } from 'next-view-transitions'
 import { cn } from '@/lib/utils'
 
 const fontSlabSerif = FontSlabSerif({
@@ -59,20 +60,25 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={cn(fontSlabSerif.variable, fontSerif.variable)}>
-      <head>
-        <SandpackCSS />
-      </head>
-      <body>
-        <LayoutHeader />
-        <main>{children}</main>
-        {/* <footer className="RootLayout_footer sticky bottom-0 border border-b-0 border-muted bg-background p-4 drop-shadow-2xl">
-          <Navbar />
-        </footer> */}
-        <Analytics />
-        <SpeedInsights />
-        <BackgroundCursorShadow />
-      </body>
-    </html>
+    <ViewTransitions>
+      <html
+        lang="en"
+        className={cn(fontSlabSerif.variable, fontSerif.variable)}
+      >
+        <head>
+          <SandpackCSS />
+        </head>
+        <body>
+          <LayoutHeader />
+          <main>{children}</main>
+          {/* <footer className="RootLayout_footer sticky bottom-0 border border-b-0 border-muted bg-background p-4 drop-shadow-2xl">
+            <Navbar />
+          </footer> */}
+          <Analytics />
+          <SpeedInsights />
+          <BackgroundCursorShadow />
+        </body>
+      </html>
+    </ViewTransitions>
   )
 }

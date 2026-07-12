@@ -6,6 +6,12 @@
   @apply flex max-w-[62ch] flex-col gap-6;
 }
 
+.Home_headingText {
+  @apply text-balance font-serif tracking-tight;
+  font-size: clamp(2.5rem, 6vw, 5.5rem);
+  line-height: 1.02;
+}
+
 .Home_subheadingText {
   @apply text-pretty leading-relaxed;
 }

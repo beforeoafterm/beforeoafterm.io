@@ -23,7 +23,7 @@ export function Navbar() {
             key={path}
             href={path}
             className={cx(
-              'relative flex w-fit select-none py-1 align-middle font-serif text-xl font-bold tracking-tighter',
+              'relative flex w-fit select-none py-1 align-middle font-slabSerif text-xl font-bold tracking-tighter',
               {
                 'pointer-events-none underline hover:text-foreground':
                   pathname === path,

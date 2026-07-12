@@ -73,12 +73,12 @@
 
   ::-moz-selection {
     background-color: var(--accent);
-    color: var(--accent-foreground);
+    color: var(--secondary-foreground);
   }
 
   ::selection {
     background-color: var(--accent);
-    color: var(--accent-foreground);
+    color: var(--secondary-foreground);
   }
 
   * {
@@ -87,6 +87,25 @@
 
   body {
     @apply relative mx-auto min-h-screen bg-background font-slabSerif text-foreground antialiased lg:flex lg:flex-row lg:gap-12 lg:px-12;
+  }
+
+  /* film grain: single fixed layer, no animation; sits above content at near-zero
+     alpha so the flat digital background reads as printed */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='128' height='128'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='128' height='128' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    opacity: 0.035;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    body::before {
+      opacity: 0.05;
+    }
   }
 
   header {
@@ -115,7 +134,7 @@
   }
 
   a {
-    @apply font-bold underline underline-offset-4 transition-colors duration-300 hover:text-muted-foreground;
+    @apply font-bold underline underline-offset-4 transition-colors duration-300 hover:text-muted-foreground hover:decoration-secondary hover:decoration-2;
   }
 
   pre::-webkit-scrollbar {
@@ -142,6 +161,26 @@
   }
 
   ._label {
-    @apply inline-block select-none rounded-full border border-ring bg-background px-3 py-1 align-middle font-serif text-xs tracking-widest text-foreground;
+    @apply inline-block select-none rounded-full border border-ring bg-background px-3 py-1 align-middle font-slabSerif text-xs tracking-widest text-foreground;
+  }
+
+  /* the mustard mark: one of the accent's three sanctioned jobs
+     (secondary-foreground on secondary = 7.34:1, both schemes) */
+  ._highlight {
+    @apply rounded-md bg-secondary box-decoration-clone px-1.5 py-0.5 text-secondary-foreground;
+  }
+}
+
+/* view transitions: respect reduced motion; pace the cover morph to the motion system */
+::view-transition-group(*) {
+  animation-duration: 300ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-image-pair(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
   }
 }

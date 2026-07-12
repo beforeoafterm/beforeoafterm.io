@@ -16,13 +16,13 @@ export default function Page() {
     <section className={styles.Home}>
       <div className={styles.Home_content}>
         <h1 className={styles.Home_headingText}>
-          Hello, you may call me <strong className="font-slabSerif">N</strong>.
-          👋🏼
+          Hello, you may call me <strong>N</strong>.{' '}
+          <span className="text-[0.7em]">👋🏼</span>
         </h1>
         <p className={styles.Home_subheadingText}>
-          I am an agent-native engineering leader based in the Philippines. 13+
-          years across fintech, Web3, and SaaS, most recently leading
-          engineering at W3.io and AR Data.
+          I am an <span className="_highlight">agent-native</span> engineering
+          leader based in the Philippines. 13+ years across fintech, Web3, and
+          SaaS, most recently leading engineering at W3.io and AR Data.
         </p>
         <p className={styles.Home_subheadingText}>
           I run AI-native delivery, where a small pod of agents owns scoped

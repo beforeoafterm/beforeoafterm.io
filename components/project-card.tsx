@@ -1,57 +1,54 @@
 'use client'
 
 import { useState } from 'react'
-import Image from 'next/image'
+import { motion, useReducedMotion } from 'framer-motion'
+import { Link } from 'next-view-transitions'
 import {
   ArrowTopRightIcon,
   EyeClosedIcon,
   EyeOpenIcon
 } from '@radix-ui/react-icons'
 import { Button } from './ui/button'
+import { CoverImage, coverBackdrop } from './cover-image'
+import { DUR, EASE } from '@/lib/motion'
 import { Project } from '@/types/Project.types'
 import { cx } from 'class-variance-authority'
 
 export function ProjectCard({
   project,
-  priority = false
+  index = 0
 }: {
   project: Project
-  priority?: boolean
+  index?: number
 }) {
   const [isTechStackVisible, setIsTechStackVisible] = useState<boolean>(false)
+  const shouldReduceMotion = useReducedMotion()
+  // above-fold cards paint immediately (LCP); the rest stagger in once
+  const reveal = !shouldReduceMotion && index >= 2
   return (
-    <article className="group flex w-full flex-col overflow-hidden rounded-3xl border border-ring bg-muted transition-all duration-300 hover:border-input hover:shadow-xl motion-safe:hover:-translate-y-1">
-      <a
-        href={project.url}
-        target="_blank"
-        rel="noreferrer"
+    <motion.article
+      initial={reveal ? { opacity: 0, y: 12 } : false}
+      whileInView={reveal ? { opacity: 1, y: 0 } : undefined}
+      viewport={{ once: true, margin: '-40px' }}
+      transition={{
+        duration: DUR.base,
+        ease: EASE,
+        delay: (index % 2) * 0.06
+      }}
+      className="group flex w-full flex-col overflow-hidden rounded-3xl border border-ring bg-muted transition-all duration-300 hover:border-input hover:shadow-xl motion-safe:hover:-translate-y-1"
+    >
+      <Link
+        href={`/projects/${project.slug}`}
         className="relative block aspect-[16/10] overflow-hidden no-underline"
-        style={
-          project.coverFit === 'contain'
-            ? // matches the SVG cover's own paper fill so letterbox bars read as canvas
-              { backgroundColor: '#f2eae3' }
-            : undefined
-        }
+        style={coverBackdrop(project)}
       >
-        {project.coverFit === 'contain' ? (
-          // SVG covers skip the optimizer; plain img avoids next/image's
-          // spurious dev fill-height warning inside an aspect-ratio parent
-          <img
-            src={project.coverImageSrc}
-            alt={`${project.name} cover`}
-            loading={priority ? 'eager' : 'lazy'}
-            className="absolute inset-0 h-full w-full object-contain motion-safe:transition-transform motion-safe:duration-500 motion-safe:ease-out motion-safe:group-hover:scale-[1.03]"
-          />
-        ) : (
-          <Image
-            src={project.coverImageSrc}
-            alt={`${project.name} cover`}
-            fill
-            priority={priority}
-            sizes="(min-width: 1024px) 28vw, (min-width: 768px) 45vw, 92vw"
-            className="object-cover motion-safe:transition-transform motion-safe:duration-500 motion-safe:ease-out motion-safe:group-hover:scale-[1.03]"
-          />
-        )}
+        <CoverImage
+          project={project}
+          priority={index < 2}
+          sizes="(min-width: 1024px) 28vw, (min-width: 768px) 45vw, 92vw"
+          vtName={`cover-${project.slug}`}
+          className="motion-safe:transition-transform motion-safe:duration-500 motion-safe:ease-out motion-safe:group-hover:scale-[1.03]"
+        />
         <div
           aria-hidden
           className="absolute inset-x-0 bottom-0 h-3/5 bg-gradient-to-t from-black/75 via-black/30 to-transparent"
@@ -60,7 +57,7 @@ export function ProjectCard({
           {project.name}
           <ArrowTopRightIcon className="ml-2 inline h-5 w-5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
         </h2>
-      </a>
+      </Link>
       <div className="flex flex-1 flex-col p-5 lg:p-6">
         <p className="text-sm font-normal leading-relaxed text-muted-foreground lg:text-base">
           {project.description}
@@ -93,6 +90,6 @@ export function ProjectCard({
           ))}
         </div>
       </div>
-    </article>
+    </motion.article>
   )
 }
