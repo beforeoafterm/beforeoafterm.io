@@ -27,7 +27,7 @@ export function Navbar() {
               {
                 'pointer-events-none underline hover:text-foreground':
                   pathname === path,
-                'text-[#368F8B] no-underline hover:text-foreground':
+                'text-muted-foreground no-underline hover:text-foreground':
                   pathname !== path
               }
             )}

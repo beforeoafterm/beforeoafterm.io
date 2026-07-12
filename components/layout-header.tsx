@@ -12,7 +12,7 @@ export function LayoutHeader() {
             Ronneil Petterson
           </h1>
         </Link>
-        <h2 className="mb-4 font-serif font-bold lg:text-xl">
+        <h2 className="mb-4 font-serif text-lg font-bold lg:text-xl">
           Engineering leader, hands-on with agents
         </h2>
         <p className="text-muted-foreground lg:text-lg">
@@ -27,21 +27,21 @@ export function LayoutHeader() {
         <a
           href="https://github.com/beforeoafterm"
           target="_blank"
-          className="text-[#368F8B] hover:text-primary"
+          className="text-muted-foreground hover:text-foreground"
         >
           <GitHubLogoIcon className="h-6 w-6" />
         </a>
         <a
           href="https://linkedin.com/in/beforeoafterm"
           target="_blank"
-          className="text-[#368F8B] hover:text-primary"
+          className="text-muted-foreground hover:text-foreground"
         >
           <LinkedInLogoIcon className="h-6 w-6" />
         </a>
         <a
           href="https://x.com/beforeoafterm"
           target="_blank"
-          className="text-[#368F8B] hover:text-primary"
+          className="text-muted-foreground hover:text-foreground"
         >
           <XLogoIcon className="h-6 w-6" />
         </a>

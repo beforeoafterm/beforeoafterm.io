@@ -1,30 +1,65 @@
 'use client'
 
 import { useState } from 'react'
-import { EyeClosedIcon, EyeOpenIcon } from '@radix-ui/react-icons'
+import Image from 'next/image'
+import {
+  ArrowTopRightIcon,
+  EyeClosedIcon,
+  EyeOpenIcon
+} from '@radix-ui/react-icons'
 import { Button } from './ui/button'
 import { Project } from '@/types/Project.types'
 import { cx } from 'class-variance-authority'
 
-export function ProjectCard({ project }: { project: Project }) {
+export function ProjectCard({
+  project,
+  priority = false
+}: {
+  project: Project
+  priority?: boolean
+}) {
   const [isTechStackVisible, setIsTechStackVisible] = useState<boolean>(false)
   return (
-    <article key={project.url} className="w-full">
-      <div
-        className="relative overflow-hidden rounded-3xl border border-border bg-muted bg-cover bg-center p-8 bg-blend-soft-light shadow-md shadow-ring backdrop-blur-sm transition-all duration-300 hover:shadow-inner hover:shadow-muted-foreground dark:shadow-muted-foreground"
-        style={{
-          backgroundImage: `url(${project.coverImageSrc})`
-        }}
+    <article className="group flex w-full flex-col overflow-hidden rounded-3xl border border-ring bg-muted transition-all duration-300 hover:border-input hover:shadow-xl motion-safe:hover:-translate-y-1">
+      <a
+        href={project.url}
+        target="_blank"
+        rel="noreferrer"
+        className="relative block aspect-[16/10] overflow-hidden no-underline"
+        style={
+          project.coverFit === 'contain'
+            ? // matches the SVG cover's own paper fill so letterbox bars read as canvas
+              { backgroundColor: '#f2eae3' }
+            : undefined
+        }
       >
-        <div className="absolute inset-0 -z-10 rounded-3xl backdrop-blur-[1px]"></div>
-        <a className="no-underline" href={project.url} target="_blank">
-          <h2 className="mb-12 text-[1.75rem] tracking-wide">{project.name}</h2>
-        </a>
-        <p className="font-normal text-muted-foreground">
+        <Image
+          src={project.coverImageSrc}
+          alt={`${project.name} cover`}
+          fill
+          priority={priority}
+          unoptimized={project.coverImageSrc.endsWith('.svg')}
+          sizes="(min-width: 1024px) 28vw, (min-width: 768px) 45vw, 92vw"
+          className={cx(
+            'motion-safe:transition-transform motion-safe:duration-500 motion-safe:ease-out motion-safe:group-hover:scale-[1.03]',
+            project.coverFit === 'contain' ? 'object-contain' : 'object-cover'
+          )}
+        />
+        <div
+          aria-hidden
+          className="absolute inset-x-0 bottom-0 h-3/5 bg-gradient-to-t from-black/75 via-black/30 to-transparent"
+        />
+        <h2 className="absolute inset-x-0 bottom-0 mb-0 p-5 font-serif text-xl font-bold text-white lg:p-6 lg:text-2xl">
+          {project.name}
+          <ArrowTopRightIcon className="ml-2 inline h-5 w-5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+        </h2>
+      </a>
+      <div className="flex flex-1 flex-col p-5 lg:p-6">
+        <p className="text-sm font-normal leading-relaxed text-muted-foreground lg:text-base">
           {project.description}
         </p>
         <Button
-          className="-ml-3 mt-4"
+          className="-ml-3 mt-4 self-start"
           size="sm"
           variant="link"
           onClick={(event) => {
@@ -40,7 +75,7 @@ export function ProjectCard({ project }: { project: Project }) {
           )}
         </Button>
         <div
-          className={cx('my-4 flex flex-wrap gap-2', {
+          className={cx('mt-auto flex flex-wrap gap-2 pt-4', {
             hidden: !isTechStackVisible
           })}
         >

@@ -86,55 +86,23 @@
   }
 
   body {
-    @apply relative
-      mx-auto
-      min-h-screen
-      bg-background
-      font-slabSerif
-      text-foreground
-      antialiased
-      lg:flex
-      lg:flex-row
-      lg:gap-12
-      lg:px-12;
+    @apply relative mx-auto min-h-screen bg-background font-slabSerif text-foreground antialiased lg:flex lg:flex-row lg:gap-12 lg:px-12;
   }
 
   header {
-    @apply flex
-      flex-col
-      p-6
-      lg:sticky
-      lg:top-0
-      lg:max-h-screen
-      lg:w-2/5
-      lg:px-0
-      lg:pt-24;
+    @apply flex flex-col p-6 lg:sticky lg:top-0 lg:max-h-screen lg:w-2/5 lg:px-0 lg:pt-24;
   }
 
   main {
-    @apply flex
-      min-w-0
-      px-6
-      pb-6
-      lg:w-3/5
-      lg:px-0
-      lg:pt-24;
+    @apply flex min-w-0 px-6 pb-6 lg:w-3/5 lg:px-0 lg:pt-24;
   }
 
   h1 {
-    @apply mb-4
-    font-serif
-    text-3xl
-    leading-[normal]
-    lg:text-6xl;
+    @apply mb-4 font-serif text-3xl leading-[normal] lg:text-6xl;
   }
 
   h2 {
-    @apply mb-4
-      font-serif
-      text-2xl
-      font-bold
-      lg:text-4xl;
+    @apply mb-4 font-serif text-2xl font-bold lg:text-4xl;
   }
 
   table {
@@ -174,29 +142,6 @@
   }
 
   ._label {
-    @apply inline-block
-      select-none
-      rounded-lg
-      border
-      border-primary
-      bg-primary-foreground
-      p-1
-      px-3
-      align-middle
-      font-serif
-      text-xs
-      tracking-widest
-      text-primary
-      shadow-inner
-      shadow-muted-foreground
-      transition-all
-      duration-300;
-  }
-
-  a._label {
-    @apply mx-2 no-underline
-      hover:text-primary
-      hover:shadow-sm
-      hover:shadow-muted-foreground;
+    @apply inline-block select-none rounded-full border border-ring bg-background px-3 py-1 align-middle font-serif text-xs tracking-widest text-foreground;
   }
 }

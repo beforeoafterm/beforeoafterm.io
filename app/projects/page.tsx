@@ -2,10 +2,8 @@ import { Button } from '@/components/ui/button'
 import './page.css'
 import { Project } from '@/types/Project.types'
 import { ProjectCard } from '@/components/project-card'
-import { url } from 'inspector'
 import { CalendarIcon } from '@radix-ui/react-icons'
 import Link from 'next/link'
-import events from 'events'
 
 const projects: Array<Project> = [
   {
@@ -30,6 +28,7 @@ const projects: Array<Project> = [
       'A self-initiated system design for an AI copilot for commercial insurance brokers. The first solution was handed to 13 adversarial AI agents that found two fatal flaws; both were rebuilt before ship. The method is the asset.',
     url: 'https://github.com/beforeoafterm/broker-copilot',
     coverImageSrc: '/images/broker-copilot.svg',
+    coverFit: 'contain',
     techStack: [
       'System Design',
       'AI Agents',
@@ -228,8 +227,12 @@ export default function Page() {
         </Link>
       </Button>
       <div className="ProjectsPage_grid">
-        {projects.map((project) => (
-          <ProjectCard key={project.url} project={project} />
+        {projects.map((project, index) => (
+          <ProjectCard
+            key={project.url}
+            project={project}
+            priority={index < 2}
+          />
         ))}
       </div>
     </section>

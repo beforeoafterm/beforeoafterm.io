@@ -1,11 +1,15 @@
 .Home {
-  @apply flex flex-col justify-between gap-8 lg:text-2xl;
+  @apply flex flex-col justify-between gap-8 lg:text-xl;
 }
 
 .Home_content {
-  @apply flex flex-col gap-8;
+  @apply flex max-w-[62ch] flex-col gap-6;
+}
+
+.Home_subheadingText {
+  @apply text-pretty leading-relaxed;
 }
 
 .Home_cta {
-  @apply mt-8 flex flex-col gap-2 md:flex-row md:gap-4;
+  @apply mt-4 flex flex-col gap-2 md:flex-row md:gap-4;
 }
