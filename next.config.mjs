@@ -13,16 +13,22 @@ const nextConfig = {
       return []
     }
 
-    const redirects = await sql`
-      SELECT source, destination, permanent
-      FROM redirects;
-    `
+    try {
+      const redirects = await sql`
+        SELECT source, destination, permanent
+        FROM redirects;
+      `
 
-    return redirects.map(({ source, destination, permanent }) => ({
-      source,
-      destination,
-      permanent: !!permanent
-    }))
+      return redirects.map(({ source, destination, permanent }) => ({
+        source,
+        destination,
+        permanent: !!permanent
+      }))
+    } catch (error) {
+      // an unreachable redirects DB must not block the deploy
+      console.warn('redirects skipped, database unreachable:', error?.message)
+      return []
+    }
   },
   headers() {
     return [
