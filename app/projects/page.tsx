@@ -9,6 +9,80 @@ import events from 'events'
 
 const projects: Array<Project> = [
   {
+    name: 'Once Upon a Desk',
+    description:
+      'A cozy, no-fail 3D co-op browser game for two kids on one keyboard. Designed and tested through agent workflows, with a headless harness for deterministic, frame-by-frame verification.',
+    url: 'https://once-upon-a-desk.vercel.app',
+    coverImageSrc: '/images/once-upon-a-desk.jpg',
+    techStack: [
+      'React Three Fiber',
+      'Rapier',
+      'Three.js',
+      'TypeScript',
+      'Vite',
+      'Vitest',
+      'Zustand'
+    ]
+  },
+  {
+    name: 'Broker Copilot',
+    description:
+      'A self-initiated system design for an AI copilot for commercial insurance brokers. The first solution was handed to 13 adversarial AI agents that found two fatal flaws; both were rebuilt before ship. The method is the asset.',
+    url: 'https://github.com/beforeoafterm/broker-copilot',
+    coverImageSrc: '/images/broker-copilot.svg',
+    techStack: [
+      'System Design',
+      'AI Agents',
+      'Adversarial Review',
+      'Product Strategy'
+    ]
+  },
+  {
+    name: 'Tioi Network',
+    description:
+      'The live marketing site for Tioi Network: a CI-gated, Lighthouse-budgeted Next.js build with a procedural canvas hero. The front door of an agent-orchestrated delivery workspace.',
+    url: 'https://tioi.network',
+    coverImageSrc: '/images/tioi.network.jpg',
+    techStack: [
+      'Next.js',
+      'React',
+      'Tailwind CSS',
+      'TypeScript',
+      'Playwright',
+      'Vercel'
+    ]
+  },
+  {
+    name: 'W3.io',
+    description:
+      'A Web3 protocol and workflow-automation platform. Led the 7-person partner-integrations team, shipping the SDKs, actions, and onboarding that bring third-party teams onto the protocol.',
+    url: 'https://w3.io',
+    coverImageSrc: '/images/w3.io.jpg',
+    techStack: [
+      'Avalanche',
+      'GitHub Actions',
+      'Go',
+      'MCP',
+      'Solidity',
+      'TypeScript'
+    ]
+  },
+  {
+    name: 'Dealsync',
+    description:
+      'Dealsync, the professional creator inbox: an AI-powered email tool that sorts brand opportunities and tracks partnerships so creators stop drowning in their inbox. Work spans the Node.js/Fastify microservices and the Dealsync 2.0 move to a Supabase-primary data architecture.',
+    url: 'https://dealsync.creatorland.com',
+    coverImageSrc: '/images/dealsync.creatorland.com.jpg',
+    techStack: [
+      'Fastify',
+      'Google APIs',
+      'Node.js',
+      'Space and Time',
+      'Supabase',
+      'TypeScript'
+    ]
+  },
+  {
     name: 'Artkipelago',
     description:
       'Customized an online educational platform for aspiring creatives, offering various courses and virtual workshops using Thinkific.',

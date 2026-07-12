@@ -20,27 +20,15 @@ export default function Page() {
           👋🏼
         </h1>
         <p className={styles.Home_subheadingText}>
-          I am a Philippine-based software engineer, technical leader & mentor.
+          I am an agent-native engineering leader based in the Philippines. 13+
+          years across fintech, Web3, and SaaS, most recently leading
+          engineering at W3.io and AR Data.
         </p>
         <p className={styles.Home_subheadingText}>
-          I've had the privilege of work with people to architect and build
-          scalable solutions for remittance-lending services
-          <a className="_label" href="https://zendmo.com" target="_blank">
-            Zendmo
-          </a>
-          , a Web3 platform for erotic arts
-          <a
-            className="_label"
-            href="https://market.nftreats.art"
-            target="_blank"
-          >
-            NFTreats
-          </a>
-          , and talent management focused on remote work productivity
-          <a className="_label" href="https://tioi.network" target="_blank">
-            Tioi Network
-          </a>
-          .
+          I run AI-native delivery, where a small pod of agents owns scoped
+          features end to end, and I stay close enough to the code to make the
+          build-vs-buy calls myself. Available now, open to fractional or
+          interim-to-permanent.
         </p>
         <div className={styles.Home_cta}>
           <Button asChild variant="outline" size="sm">

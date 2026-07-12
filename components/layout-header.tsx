@@ -13,10 +13,11 @@ export function LayoutHeader() {
           </h1>
         </Link>
         <h2 className="mb-4 font-serif font-bold lg:text-xl">
-          Software engineer &amp; mentor
+          Engineering leader, hands-on with agents
         </h2>
         <p className="text-muted-foreground lg:text-lg">
-          I solve technical problems with user-centered solutions.
+          13+ years across fintech, Web3, and AI. Available now, open to
+          fractional or interim-to-permanent.
         </p>
       </div>
       <div className="flex-grow">
