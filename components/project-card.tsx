@@ -33,18 +33,25 @@ export function ProjectCard({
             : undefined
         }
       >
-        <Image
-          src={project.coverImageSrc}
-          alt={`${project.name} cover`}
-          fill
-          priority={priority}
-          unoptimized={project.coverImageSrc.endsWith('.svg')}
-          sizes="(min-width: 1024px) 28vw, (min-width: 768px) 45vw, 92vw"
-          className={cx(
-            'motion-safe:transition-transform motion-safe:duration-500 motion-safe:ease-out motion-safe:group-hover:scale-[1.03]',
-            project.coverFit === 'contain' ? 'object-contain' : 'object-cover'
-          )}
-        />
+        {project.coverFit === 'contain' ? (
+          // SVG covers skip the optimizer; plain img avoids next/image's
+          // spurious dev fill-height warning inside an aspect-ratio parent
+          <img
+            src={project.coverImageSrc}
+            alt={`${project.name} cover`}
+            loading={priority ? 'eager' : 'lazy'}
+            className="absolute inset-0 h-full w-full object-contain motion-safe:transition-transform motion-safe:duration-500 motion-safe:ease-out motion-safe:group-hover:scale-[1.03]"
+          />
+        ) : (
+          <Image
+            src={project.coverImageSrc}
+            alt={`${project.name} cover`}
+            fill
+            priority={priority}
+            sizes="(min-width: 1024px) 28vw, (min-width: 768px) 45vw, 92vw"
+            className="object-cover motion-safe:transition-transform motion-safe:duration-500 motion-safe:ease-out motion-safe:group-hover:scale-[1.03]"
+          />
+        )}
         <div
           aria-hidden
           className="absolute inset-x-0 bottom-0 h-3/5 bg-gradient-to-t from-black/75 via-black/30 to-transparent"
