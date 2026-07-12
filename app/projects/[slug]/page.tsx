@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import { Link } from 'next-view-transitions'
-import { ArrowLeftIcon, ArrowTopRightIcon } from '@radix-ui/react-icons'
+import { ArrowTopRightIcon } from '@radix-ui/react-icons'
+import { BackLink } from '@/components/back-link'
 import { Button } from '@/components/ui/button'
 import { CoverImage, coverBackdrop } from '@/components/cover-image'
 import { getProject, projectLinkLabel, projects } from '@/lib/projects'
@@ -33,13 +33,7 @@ export default function Page({ params }: { params: { slug: string } }) {
   if (!project) notFound()
   return (
     <section className="flex w-full flex-col gap-6 lg:gap-8">
-      <Link
-        href="/projects"
-        className="flex w-fit items-center gap-2 font-slabSerif text-sm uppercase tracking-widest text-muted-foreground no-underline hover:text-foreground"
-      >
-        <ArrowLeftIcon className="h-4 w-4" />
-        All projects
-      </Link>
+      <BackLink href="/projects" label="All projects" />
       <div
         className="relative aspect-[16/10] overflow-hidden rounded-3xl border border-ring md:aspect-[21/9]"
         style={coverBackdrop(project)}

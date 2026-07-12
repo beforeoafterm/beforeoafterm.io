@@ -23,12 +23,14 @@ export function ProjectCard({
 }) {
   const [isTechStackVisible, setIsTechStackVisible] = useState<boolean>(false)
   const shouldReduceMotion = useReducedMotion()
-  // above-fold cards paint immediately (LCP); the rest stagger in once
+  // above-fold cards paint immediately (LCP); the rest stagger in once.
+  // transform-only reveal: if rAF ever stalls (backgrounded tab, crawler),
+  // a frozen animation leaves the card readable instead of invisible
   const reveal = !shouldReduceMotion && index >= 2
   return (
     <motion.article
-      initial={reveal ? { opacity: 0, y: 12 } : false}
-      whileInView={reveal ? { opacity: 1, y: 0 } : undefined}
+      initial={reveal ? { y: 12 } : false}
+      whileInView={reveal ? { y: 0 } : undefined}
       viewport={{ once: true, margin: '-40px' }}
       transition={{
         duration: DUR.base,

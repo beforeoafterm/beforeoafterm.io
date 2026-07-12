@@ -89,24 +89,8 @@
     @apply relative mx-auto min-h-screen bg-background font-slabSerif text-foreground antialiased lg:flex lg:flex-row lg:gap-12 lg:px-12;
   }
 
-  /* film grain: single fixed layer, no animation; sits above content at near-zero
-     alpha so the flat digital background reads as printed */
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    z-index: 1;
-    pointer-events: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='128' height='128'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='128' height='128' filter='url(%23n)'/%3E%3C/svg%3E");
-    background-repeat: repeat;
-    opacity: 0.035;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    body::before {
-      opacity: 0.05;
-    }
-  }
+  /* film grain lives in components/grain.tsx as an inline SVG; a CSS url()
+     here gets rewritten to a 404ing chunk asset by Turbopack + Lightning CSS */
 
   header {
     @apply flex flex-col p-6 lg:sticky lg:top-0 lg:max-h-screen lg:w-2/5 lg:px-0 lg:pt-24;
