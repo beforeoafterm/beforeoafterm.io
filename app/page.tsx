@@ -7,35 +7,45 @@ import {
   CalendarIcon,
   LinkedInLogoIcon
 } from '@radix-ui/react-icons'
+import { motion, useReducedMotion } from 'framer-motion'
 import Link from 'next/link'
-import { useRouter } from 'next/navigation'
+import { useTransitionRouter } from 'next-view-transitions'
+import { DUR, EASE } from '@/lib/motion'
+import { CALENDLY_URL } from '@/lib/site'
 
 export default function Page() {
-  const router = useRouter()
+  const router = useTransitionRouter()
+  const shouldReduceMotion = useReducedMotion()
+  // one-time entrance, transform-only so stalled rAF never hides the hero
+  const rise = (order: number) => ({
+    initial: shouldReduceMotion ? false : { y: 14 },
+    animate: { y: 0 },
+    transition: { duration: DUR.slow, ease: EASE, delay: order * 0.07 }
+  })
   return (
     <section className={styles.Home}>
       <div className={styles.Home_content}>
-        <h1 className={styles.Home_headingText}>
+        <motion.h1 className={styles.Home_headingText} {...rise(0)}>
           Hello, you may call me <strong>N</strong>.{' '}
           <span className="text-[0.7em]">👋🏼</span>
-        </h1>
-        <p className={styles.Home_subheadingText}>
+        </motion.h1>
+        <motion.p className={styles.Home_subheadingText} {...rise(1)}>
           I am an <span className="_highlight">agent-native</span> engineering
           leader based in the Philippines. 13+ years across fintech, Web3, and
           SaaS, most recently leading engineering at W3.io and AR Data.
-        </p>
-        <p className={styles.Home_subheadingText}>
+        </motion.p>
+        <motion.p className={styles.Home_subheadingText} {...rise(2)}>
           I run AI-native delivery, where a small pod of agents owns scoped
           features end to end, and I stay close enough to the code to make the
           build-vs-buy calls myself. Available now, open to fractional or
           interim-to-permanent.
-        </p>
-        <div className={styles.Home_cta}>
+        </motion.p>
+        <motion.div className={styles.Home_cta} {...rise(3)}>
           <Button asChild variant="outline" size="sm">
             <Link
               className="no-underline hover:text-primary-foreground"
               target="_blank"
-              href="https://calendly.com/n-tioi-network/intro-call"
+              href={CALENDLY_URL}
             >
               Book a call with me
               <CalendarIcon className="ml-2 h-4 w-4" />
@@ -51,7 +61,7 @@ export default function Page() {
               <LinkedInLogoIcon className="ml-2 h-4 w-4" />
             </Link>
           </Button>
-        </div>
+        </motion.div>
       </div>
       <Button
         className="mx-auto my-6 w-fit md:mr-0"

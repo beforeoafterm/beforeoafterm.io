@@ -3,16 +3,13 @@
 import { useState } from 'react'
 import { motion, useReducedMotion } from 'framer-motion'
 import { Link } from 'next-view-transitions'
-import {
-  ArrowTopRightIcon,
-  EyeClosedIcon,
-  EyeOpenIcon
-} from '@radix-ui/react-icons'
-import { Button } from './ui/button'
+import { ArrowTopRightIcon } from '@radix-ui/react-icons'
 import { CoverImage, coverBackdrop } from './cover-image'
 import { DUR, EASE } from '@/lib/motion'
 import { Project } from '@/types/Project.types'
 import { cx } from 'class-variance-authority'
+
+const INITIAL_PILLS = 4
 
 export function ProjectCard({
   project,
@@ -21,8 +18,12 @@ export function ProjectCard({
   project: Project
   index?: number
 }) {
-  const [isTechStackVisible, setIsTechStackVisible] = useState<boolean>(false)
+  const [showAllTech, setShowAllTech] = useState<boolean>(false)
   const shouldReduceMotion = useReducedMotion()
+  const visibleTech = showAllTech
+    ? project.techStack
+    : project.techStack.slice(0, INITIAL_PILLS)
+  const hiddenCount = project.techStack.length - INITIAL_PILLS
   // above-fold cards paint immediately (LCP); the rest stagger in once.
   // transform-only reveal: if rAF ever stalls (backgrounded tab, crawler),
   // a frozen animation leaves the card readable instead of invisible
@@ -64,32 +65,27 @@ export function ProjectCard({
         <p className="text-sm font-normal leading-relaxed text-muted-foreground lg:text-base">
           {project.description}
         </p>
-        <Button
-          className="-ml-3 mt-4 self-start"
-          size="sm"
-          variant="link"
-          onClick={(event) => {
-            event.stopPropagation()
-            setIsTechStackVisible((prev) => !prev)
-          }}
-        >
-          {isTechStackVisible ? 'Hide' : 'Tech Stack'}
-          {isTechStackVisible ? (
-            <EyeClosedIcon className="ml-2 h-4 w-4" />
-          ) : (
-            <EyeOpenIcon className="ml-2 h-4 w-4" />
-          )}
-        </Button>
-        <div
-          className={cx('mt-auto flex flex-wrap gap-2 pt-4', {
-            hidden: !isTechStackVisible
-          })}
-        >
-          {project.techStack.map((tech) => (
+        <div className="mt-auto flex flex-wrap gap-2 pt-5">
+          {visibleTech.map((tech) => (
             <span key={tech} className="_label">
               {tech}
             </span>
           ))}
+          {!showAllTech && hiddenCount > 0 && (
+            <button
+              type="button"
+              onClick={(event) => {
+                event.stopPropagation()
+                setShowAllTech(true)
+              }}
+              className={cx(
+                '_label cursor-pointer transition-colors duration-300 hover:border-input hover:text-foreground'
+              )}
+              aria-label={`Show ${hiddenCount} more technologies`}
+            >
+              +{hiddenCount} more
+            </button>
+          )}
         </div>
       </div>
     </motion.article>

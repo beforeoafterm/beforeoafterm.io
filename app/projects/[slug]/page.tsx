@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { ArrowTopRightIcon } from '@radix-ui/react-icons'
 import { BackLink } from '@/components/back-link'
+import { ClosingSection } from '@/components/closing-section'
 import { Button } from '@/components/ui/button'
 import { CoverImage, coverBackdrop } from '@/components/cover-image'
 import { getProject, projectLinkLabel, projects } from '@/lib/projects'
@@ -102,6 +103,7 @@ export default function Page({ params }: { params: { slug: string } }) {
           </a>
         </Button>
       </div>
+      <ClosingSection />
     </section>
   )
 }

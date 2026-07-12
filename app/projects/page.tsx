@@ -1,7 +1,9 @@
 import { Button } from '@/components/ui/button'
 import './page.css'
+import { ClosingSection } from '@/components/closing-section'
 import { ProjectCard } from '@/components/project-card'
 import { projects } from '@/lib/projects'
+import { CALENDLY_URL } from '@/lib/site'
 import { CalendarIcon } from '@radix-ui/react-icons'
 import Link from 'next/link'
 
@@ -18,7 +20,7 @@ export default function Page() {
         <Link
           className="no-underline hover:text-primary-foreground"
           target="_blank"
-          href="https://calendly.com/n-tioi-network/intro-call"
+          href={CALENDLY_URL}
         >
           Book a call with me
           <CalendarIcon className="ml-2 h-4 w-4" />
@@ -29,6 +31,7 @@ export default function Page() {
           <ProjectCard key={project.url} project={project} index={index} />
         ))}
       </div>
+      <ClosingSection />
     </section>
   )
 }
