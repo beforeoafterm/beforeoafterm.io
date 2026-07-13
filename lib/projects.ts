@@ -82,6 +82,15 @@ export const projects: Array<Project> = [
     ]
   },
   {
+    slug: 'enduri-learning',
+    name: 'Enduri Learning',
+    description:
+      'An interactive learning platform for ages 9 to 12: students build an avatar and level up their own learning strategies, from goals and motivation to strengths and needs, while schools and parents follow the journey.',
+    url: 'https://enduri-learning.com/',
+    coverImageSrc: '/images/enduri-learning.com.jpg',
+    techStack: ['AWS', 'Next.js', 'PostgreSQL', 'Stripe', 'tRPC']
+  },
+  {
     slug: 'artkipelago',
     name: 'Artkipelago',
     description:
