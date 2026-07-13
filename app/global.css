@@ -35,8 +35,43 @@
     --radius: 0.5rem;
   }
 
+  /* explicit choice via the theme toggle; a pre-paint script stamps
+     .dark/.light from localStorage or the system preference */
+  :root.dark {
+    --background: #5e3144;
+    --foreground: #f1e4e9;
+
+    --card: #5e3144;
+    --card-foreground: #f1e4e9;
+
+    --popover: #5e3144;
+    --popover-foreground: #f1e4e9;
+
+    --primary: #f1e4e9;
+    --primary-foreground: #5e3144;
+
+    --secondary: #ffd400;
+    --secondary-foreground: #5e3144;
+
+    --muted: #235d5a;
+    --muted-foreground: #e5cdd6;
+
+    --accent: #ffd60a;
+    --accent-foreground: #806a00;
+
+    --destructive: #e84855;
+    --destructive-foreground: #f1e4e9;
+
+    --border: #d3abbb;
+    --input: #e5cdd6;
+    --ring: #5e3144;
+
+    color-scheme: dark;
+  }
+
+  /* no-JS fallback: system dark keeps dark tokens unless light was chosen */
   @media (prefers-color-scheme: dark) {
-    :root {
+    :root:not(.light) {
       --background: #5e3144;
       --foreground: #f1e4e9;
 
@@ -64,9 +99,7 @@
       --border: #d3abbb;
       --input: #e5cdd6;
       --ring: #5e3144;
-    }
 
-    html {
       color-scheme: dark;
     }
   }
@@ -152,6 +185,26 @@
      (secondary-foreground on secondary = 7.34:1, both schemes) */
   ._highlight {
     @apply rounded-md bg-secondary box-decoration-clone px-1.5 py-0.5 text-secondary-foreground;
+  }
+
+  /* hover underline that draws in from the left; the accent's underline job */
+  ._link-draw {
+    @apply no-underline;
+    background-image: linear-gradient(var(--secondary), var(--secondary));
+    background-size: 0% 2px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size 300ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  ._link-draw:hover {
+    background-size: 100% 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    ._link-draw {
+      transition: none;
+    }
   }
 }
 

@@ -3,6 +3,7 @@ import XLogoIcon from '@/components/icons/x-logo-icon'
 import { Link } from 'next-view-transitions'
 import { LocalTime } from './local-time'
 import { Navbar } from './nav'
+import { ThemeToggle } from './theme-toggle'
 
 export function LayoutHeader() {
   return (
@@ -52,6 +53,7 @@ export function LayoutHeader() {
           >
             <XLogoIcon className="h-6 w-6" />
           </a>
+          <ThemeToggle />
         </div>
         <LocalTime />
       </div>

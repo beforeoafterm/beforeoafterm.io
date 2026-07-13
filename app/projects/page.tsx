@@ -7,6 +7,15 @@ import { CALENDLY_URL } from '@/lib/site'
 import { CalendarIcon } from '@radix-ui/react-icons'
 import Link from 'next/link'
 
+export const metadata = {
+  title: 'Projects',
+  description:
+    'Selected work across fintech, Web3, and AI, from flagship builds to earlier client projects.',
+  openGraph: {
+    images: ['/og?title=Projects&kicker=Selected work']
+  }
+}
+
 export default function Page() {
   return (
     <section className="ProjectsPage">
@@ -28,7 +37,12 @@ export default function Page() {
       </Button>
       <div className="ProjectsPage_grid">
         {projects.map((project, index) => (
-          <ProjectCard key={project.url} project={project} index={index} />
+          <ProjectCard
+            key={project.url}
+            project={project}
+            index={index}
+            featured={index === 0}
+          />
         ))}
       </div>
       <ClosingSection />

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Suspense, cache } from 'react'
 import { notFound } from 'next/navigation'
+import { ClosingSection } from '@/components/closing-section'
 import { CustomMDX } from '@/components/mdx'
 import { getViewsCount } from '@/lib/db/queries'
 import { getBlogPosts } from '@/lib/db/blog'
@@ -109,17 +110,17 @@ export default function Blog({ params }) {
             url: `https://beforeoafterm-io.vercel.app/blog/${post.slug}`,
             author: {
               '@type': 'Person',
-              name: 'Lee Robinson'
+              name: 'Ronneil Petterson'
             }
           })
         }}
       />
-      <h1 className="title max-w-[650px] text-2xl font-medium tracking-tighter">
+      <h1 className="title max-w-[26ch] text-3xl tracking-tight lg:text-5xl">
         {post.metadata.title}
       </h1>
-      <div className="mb-8 mt-2 flex max-w-[650px] items-center justify-between text-sm">
+      <div className="mb-10 mt-2 flex max-w-[65ch] items-center justify-between">
         <Suspense fallback={<p className="h-5" />}>
-          <p className="text-sm text-neutral-600 dark:text-neutral-400">
+          <p className="font-slabSerif text-xs uppercase tracking-widest text-muted-foreground">
             {formatDate(post.metadata.publishedAt)}
           </p>
         </Suspense>
@@ -127,9 +128,10 @@ export default function Blog({ params }) {
           <Views slug={post.slug} />
         </Suspense>
       </div>
-      <article>
+      <article className="max-w-[65ch] leading-relaxed">
         <CustomMDX source={post.content} />
       </article>
+      <ClosingSection />
     </section>
   )
 }

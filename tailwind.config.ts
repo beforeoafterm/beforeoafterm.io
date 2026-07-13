@@ -4,6 +4,7 @@ import typography from '@tailwindcss/typography'
 import animate from 'tailwindcss-animate'
 
 export default {
+  darkMode: 'selector',
   content: [
     './app/**/*.{ts,tsx,css}',
     './components/**/*.{ts,tsx,css}',

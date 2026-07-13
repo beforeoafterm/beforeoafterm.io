@@ -56,6 +56,7 @@ export const projects: Array<Project> = [
       'A Web3 protocol and workflow-automation platform. Led the 7-person partner-integrations team, shipping the SDKs, actions, and onboarding that bring third-party teams onto the protocol.',
     url: 'https://w3.io',
     coverImageSrc: '/images/w3.io.jpg',
+    coverPosition: '50% 42%',
     techStack: [
       'Avalanche',
       'GitHub Actions',
@@ -72,6 +73,7 @@ export const projects: Array<Project> = [
       'Dealsync, the professional creator inbox: an AI-powered email tool that sorts brand opportunities and tracks partnerships so creators stop drowning in their inbox. Work spans the Node.js/Fastify microservices and the Dealsync 2.0 move to a Supabase-primary data architecture.',
     url: 'https://dealsync.creatorland.com',
     coverImageSrc: '/images/dealsync.creatorland.com.jpg',
+    coverPosition: '50% 40%',
     techStack: [
       'Fastify',
       'Google APIs',
@@ -88,6 +90,7 @@ export const projects: Array<Project> = [
       'An interactive learning platform for ages 9 to 12: students build an avatar and level up their own learning strategies, from goals and motivation to strengths and needs, while schools and parents follow the journey.',
     url: 'https://enduri-learning.com/',
     coverImageSrc: '/images/enduri-learning.com.jpg',
+    coverPosition: '50% 35%',
     techStack: ['AWS', 'Next.js', 'PostgreSQL', 'Stripe', 'tRPC']
   },
   {

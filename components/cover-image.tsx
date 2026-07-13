@@ -24,7 +24,12 @@ export function CoverImage({
   vtName?: string
   className?: string
 }) {
-  const style = vtName ? { viewTransitionName: vtName } : undefined
+  const style = {
+    ...(vtName ? { viewTransitionName: vtName } : undefined),
+    ...(project.coverPosition
+      ? { objectPosition: project.coverPosition }
+      : undefined)
+  }
   if (project.coverFit === 'contain') {
     // SVG covers skip the optimizer; plain img avoids next/image's
     // spurious dev fill-height warning inside an aspect-ratio parent

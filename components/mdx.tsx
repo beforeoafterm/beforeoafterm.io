@@ -29,21 +29,30 @@ function Table({ data }) {
 }
 
 function CustomLink(props) {
-  const href = props.href
+  const { href, className, ...rest } = props
+  const drawn = ['_link-draw', className].filter(Boolean).join(' ')
 
   if (href.startsWith('/')) {
     return (
-      <Link href={href} {...props}>
+      <Link href={href} className={drawn} {...rest}>
         {props.children}
       </Link>
     )
   }
 
   if (href.startsWith('#')) {
-    return <a {...props} />
+    return <a href={href} className={drawn} {...rest} />
   }
 
-  return <a target="_blank" rel="noopener noreferrer" {...props} />
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={drawn}
+      {...rest}
+    />
+  )
 }
 
 function RoundedImage(props) {
