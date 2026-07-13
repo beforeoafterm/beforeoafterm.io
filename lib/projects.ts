@@ -170,7 +170,8 @@ export const projects: Array<Project> = [
     name: 'nftreats.art NFT Marketplace (NSFW)',
     description:
       'A NFT marketplace for erotic art creators. Consulted for the Treat Factory to build an inclusive, passionate, and open Web3 platform for lovers and creators of erotic art.',
-    url: 'https://market.nftreats.art',
+    // the marketplace is offline; the Medium launch post is the last remnant
+    url: 'https://nftreats.medium.com/nftreats-art-an-inclusive-passionate-and-open-nft-platform-for-lovers-creators-of-erotic-art-947f3c1f24a7',
     coverImageSrc: '/images/market.nftreats.art.jpg',
     techStack: [
       'ESLint',
@@ -225,5 +226,6 @@ export function projectLinkLabel(url: string): string {
   if (host.endsWith('github.com')) return 'View on GitHub'
   if (host.endsWith('web.archive.org')) return 'View archived site'
   if (host.endsWith('facebook.com')) return 'Watch video'
+  if (host.endsWith('medium.com')) return 'Read the Medium post'
   return 'Visit live site'
 }
